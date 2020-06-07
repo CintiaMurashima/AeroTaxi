@@ -1,6 +1,6 @@
 package com.company.aviones;
 
-public class Avion {
+public abstract class Avion {
 
     private String nombre;
     private double capacidadCombustible;

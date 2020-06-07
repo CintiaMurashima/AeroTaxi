@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.aviones.Avion;
+import com.company.aviones.*;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,6 +32,17 @@ public class AeroTaxi {
         ciudades.add("Santiago");
         ciudades.add("Montevideo");
 
+        Bronze avion1=new Bronze("Avion1",20000,150,10,900, Propulsion.helice);
+        Gold avion2=new Gold("Avion2",30000,100,5,900, Propulsion.pistones,true);
+        Silver avion3=new Silver("Avion3",20000,150,7,900, Propulsion.helice);
+
+        aviones.add(avion1);
+        aviones.add(avion2);
+        aviones.add(avion3);
+
+
+
+
     }
 
     public Date ingresarFecha(){
@@ -62,14 +73,17 @@ public class AeroTaxi {
         System.out.println("Introduzca el destino");
         ciudad2= seleccionarCiudad();
         if(!ciudad1.equals(ciudad2)) {
-            while (i < rutas.size() && ruta!= null ){
+            while (i < rutas.size() && ruta == null ){
                 if (ciudad1.equals(rutas.get(i).getCiudad1()) || ciudad1.equals(rutas.get(i).getCiudad2()) &&
                         ciudad2.equals(rutas.get(i).getCiudad1()) || ciudad2.equals(rutas.get(i).getCiudad2()))
                 {
                     ruta=rutas.get(i);
                 }
                 i++;
-            }}
+            }
+        }else{
+            System.out.println("No puede repetir ciudades");
+        }
         return ruta;
     }
 
@@ -117,7 +131,7 @@ public class AeroTaxi {
                 }
                 j++;
             }
-            if(encontrado){
+            if(!encontrado){
                 avionesDesocupados.add(aviones.get(j));
             }
         }
@@ -181,8 +195,6 @@ public class AeroTaxi {
 
 
     }
-
-
 
 
 
