@@ -34,48 +34,43 @@ public class AeroTaxi {
 
     }
 
-    public Avion seleccionarAvion(Date fecha){
-        ArrayList<Avion>avionesOcupados= new ArrayList<>(); // Guardo los aviones que no estan disponibles en la fecha indicada
-        ArrayList<Avion>avionesDesocupados= new ArrayList<>();
-        boolean encontrado=false;
-        int j;
+    public Date ingresarFecha(){
+
         Scanner teclado = new Scanner(System.in);
-        int seleccion;
+        String fechaTeclado;
+        System.out.println("Introduzca la fecha con formato dd/mm/yyyy");
+        fechaTeclado= teclado.nextLine();
 
-       for(int i=0; i < vuelos.size(); i++){
-           if(vuelos.get(i).getFechaVuelo().equals(fecha)){
-               avionesOcupados.add(vuelos.get(i).getAvion());
-           }
-       }
-       for(int i=0; i < aviones.size(); i++){
-           j=0;
-           encontrado=false;
-           while(j < avionesOcupados.size() && !encontrado){
-               if(avionesOcupados.get(j).equals(aviones.get(i))){
-                   encontrado=true;
-               }
-               j++;
-           }
-           if(encontrado){
-               avionesDesocupados.add(aviones.get(j));
-           }
-       }
-       System.out.println("Seleccione un avion");
-       for(int i=0; i < avionesDesocupados.size();i++){
-           System.out.println(i+1 + avionesDesocupados.get(i).getNombre());//
-       }
-        seleccion = teclado.nextInt();
-       return avionesDesocupados.get(seleccion-1);
+        SimpleDateFormat formatearFecha = new SimpleDateFormat("dd/MM/yyyy");
+        Date fecha = null; //creo el tipo fecha
+
+        try{
+            fecha = formatearFecha.parse(fechaTeclado); // parse convierte string en date
+        } catch (Exception e) {
+            System.out.println("Fecha invalida");
+        }
+        return fecha;
+
     }
-
-
-    public void origenDestino(){
-        String ciudadOrigen;
-        String ciudadDestino;
+    public Ruta obtenerRuta() {
+        Ruta ruta = null;
+        int i=0;
+        String ciudad1;
+        String ciudad2;
         System.out.println("Introduzca el origen");
-        ciudadOrigen= seleccionarCiudad();
+        ciudad1= seleccionarCiudad();
         System.out.println("Introduzca el destino");
-        ciudadDestino= seleccionarCiudad();
+        ciudad2= seleccionarCiudad();
+        if(!ciudad1.equals(ciudad2)) {
+            while (i < rutas.size() && ruta!= null ){
+                if (ciudad1.equals(rutas.get(i).getCiudad1()) || ciudad1.equals(rutas.get(i).getCiudad2()) &&
+                        ciudad2.equals(rutas.get(i).getCiudad1()) || ciudad2.equals(rutas.get(i).getCiudad2()))
+                {
+                    ruta=rutas.get(i);
+                }
+                i++;
+            }}
+        return ruta;
     }
 
     public String seleccionarCiudad() {
@@ -86,27 +81,13 @@ public class AeroTaxi {
         for (int i = 0; i < ciudades.size(); i++){
             System.out.println(i+1+"-" + ciudades.get(i));
         }
-       seleccion = teclado.nextInt();
+        seleccion = teclado.nextInt();
+        ciudad=ciudades.get(seleccion-1);
         return ciudad;
     }
 
-    public Ruta obtenerRuta(String ciudad1, String ciudad2) {
-        Ruta ruta = null;
-        int i=0;
-        if(!ciudad1.equals(ciudad2)) {
-        while (i < rutas.size() && ruta!= null ){
-            if (ciudad1.equals(rutas.get(i).getCiudad1()) || ciudad1.equals(rutas.get(i).getCiudad2()) &&
-                ciudad2.equals(rutas.get(i).getCiudad1()) || ciudad2.equals(rutas.get(i).getCiudad2()))
-            {
-                ruta=rutas.get(i);
-            }
-            i++;
-        }}
-        return ruta;
-    }
-
-
-    public int acompañantes(){
+    //luego valido los vuelos que hay con la cantidad de acompañantes que ingreso el usu
+    public int acompanantes(){
         Scanner teclado = new Scanner(System.in);
         int acomp=0;
         System.out.println("Introduzca cantidad de acompañantes");
@@ -114,33 +95,78 @@ public class AeroTaxi {
         return acomp;
     }
 
+    public ArrayList<Avion>dispoAvion(Date fecha){
+        ArrayList<Avion>avionesOcupados= new ArrayList<>(); // Guardo los aviones que no estan disponibles en la fecha indicada
+        ArrayList<Avion>avionesDesocupados= new ArrayList<>(); // ocupacion en relacion a la fecha
+        boolean encontrado;
+        int j;
 
-    public void crearVuelo(){
-
-        ingresarFecha();
-
-    }
-
-
-
-    public Date ingresarFecha(){
-
-        System.out.println("Introduzca la fecha con formato dd/mm/yyyy");
-        Scanner teclado = new Scanner(System.in);
-        String fechaTeclado= teclado.nextLine();
-
-        SimpleDateFormat formatearFecha = new SimpleDateFormat("dd/MM/yyyy");
-        Date fecha = null; //creo el tipo fecha
-
-        try{
-            fecha = formatearFecha.parse(fechaTeclado); // parse convierte string en date
-        } catch (Exception e) {
-            System.out.println("Fecha invalida");
+        for(int i=0; i < vuelos.size(); i++){
+            if(vuelos.get(i).getFechaVuelo().equals(fecha)){
+                avionesOcupados.add(vuelos.get(i).getAvion());
+            }
         }
 
-        return fecha;
+        for(int i=0; i < aviones.size(); i++){
+            j=0;
+            encontrado=false;
+            while(j < avionesOcupados.size() && !encontrado){
+                if(avionesOcupados.get(j).equals(aviones.get(i))){
+                    encontrado=true;
+                }
+                j++;
+            }
+            if(encontrado){
+                avionesDesocupados.add(aviones.get(j));
+            }
+        }
+        return avionesDesocupados;
+    }
+
+    public Avion seleccionarAvion(ArrayList<Avion> avionesDisponibles,int acompanantes){
+        ArrayList<Avion>avionesValidos=new ArrayList<>(); ///guardo los aviones disponibles c/capacidad de pasajeros
+        Scanner teclado = new Scanner(System.in);
+        int seleccion;
+        Avion avionSeleccionado= null;
+
+       for(int i = 0; i < avionesDisponibles.size(); i++){
+           if(acompanantes< avionesDisponibles.get(i).getCapacidadMaxPax()){
+               avionesValidos.add(avionesDisponibles.get(i));
+           }
+       }
+       if(avionesValidos.isEmpty()){
+           System.out.println("“No tenemos aviones disponibles con esa capacidad de pasajeros”.");
+       }else {
+           System.out.println("Seleccione un avion");
+           for (int i = 0; i < avionesValidos.size(); i++) {
+               System.out.println(i + 1 + avionesValidos.get(i).getNombre());//
+           }
+           seleccion = teclado.nextInt();
+           avionSeleccionado=avionesValidos.get(seleccion-1);
+       }
+       return avionSeleccionado;
+    }
+
+
+
+// LLamo a las funciones anteriores y las uno con la validaciones correspondientes
+    public void crearVuelo(){
+        Date fecha=ingresarFecha();
+        Ruta ruta=obtenerRuta();
+        int acompanantes= acompanantes();
+        ArrayList<Avion> avionesDisponibles= dispoAvion(fecha);
+        Avion avionSeleccionado;
+
+        if(!avionesDisponibles.isEmpty()){
+            avionSeleccionado= seleccionarAvion(avionesDisponibles,acompanantes);
+        }else{
+            System.out.println("No hay aviones disponibles para la fecha");
+        }
 
     }
+
+
+
 
 
 }
