@@ -1,10 +1,8 @@
 package com.company.aviones;
 
-import com.company.Propulsion;
-
 public class Avion {
 
-
+    private String nombre;
     private double capacidadCombustible;
     private double costoXkm; //valor ronda entre los $150 y $300
     private int capacidadMaxPax;
@@ -13,13 +11,22 @@ public class Avion {
     private boolean catering;
 
 
-    public Avion(double capacidadCombustible, double costoXkm, int capacidadMaxPax, double velocidadMax, Propulsion tipoPropulsion, boolean catering) {
+    public Avion(String nombre,double capacidadCombustible, double costoXkm, int capacidadMaxPax, double velocidadMax, Propulsion tipoPropulsion, boolean catering) {
+        this.nombre=nombre;
         this.capacidadCombustible = capacidadCombustible;
         this.costoXkm = costoXkm;
         this.capacidadMaxPax = capacidadMaxPax;
         this.velocidadMax = velocidadMax;
         this.tipoPropulsion = tipoPropulsion;
         this.catering = catering;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public double getCapacidadCombustible() {

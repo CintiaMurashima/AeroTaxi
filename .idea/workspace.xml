@@ -2,16 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86116314-3ed9-4473-9c63-a2a47978addd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/AeroTaxi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/AeroTaxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/AeroTaxi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Propulsion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Propulsion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Ruta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Ruta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Vuelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Vuelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/aviones/Avion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Avion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/aviones/Bronze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Bronze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/aviones/Gold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Gold.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/aviones/Silver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Silver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="176" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -51,6 +59,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -66,13 +79,36 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser" timestamp="1590894749898">
+    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser" timestamp="1591489651827">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1590894749898" />
+    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1591489651827" />
+    <state x="365" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591471034015">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="365" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680@0.0.1280.680" timestamp="1591471034015" />
     <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590892124276">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1590892124276" />
+    <state width="640" height="163" key="GridCell.Tab.0.bottom" timestamp="1591484535689">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="640" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1591484535689" />
+    <state width="640" height="163" key="GridCell.Tab.0.center" timestamp="1591484535689">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="640" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1591484535689" />
+    <state width="640" height="163" key="GridCell.Tab.0.left" timestamp="1591484535689">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="640" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1591484535689" />
+    <state width="640" height="163" key="GridCell.Tab.0.right" timestamp="1591484535689">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="640" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1591484535689" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AeroTaxi$Main.ic" NAME="Main Coverage Results" MODIFIED="1591484535647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
