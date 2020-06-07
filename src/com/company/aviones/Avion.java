@@ -9,9 +9,11 @@ public class Avion {
     private double velocidadMax;//
     private Propulsion tipoPropulsion; //motor a reaccion ,helice, pistones
     private boolean catering;
+    private double tarifaDelTipo;
 
 
-    public Avion(String nombre,double capacidadCombustible, double costoXkm, int capacidadMaxPax, double velocidadMax, Propulsion tipoPropulsion, boolean catering) {
+    public Avion(String nombre,double capacidadCombustible, double costoXkm, int capacidadMaxPax,
+                 double velocidadMax, Propulsion tipoPropulsion, boolean catering, double tarifaDelTipo) {
         this.nombre=nombre;
         this.capacidadCombustible = capacidadCombustible;
         this.costoXkm = costoXkm;
@@ -19,6 +21,15 @@ public class Avion {
         this.velocidadMax = velocidadMax;
         this.tipoPropulsion = tipoPropulsion;
         this.catering = catering;
+        this.tarifaDelTipo= tarifaDelTipo;
+    }
+
+    public double getTarifaDelTipo() {
+        return tarifaDelTipo;
+    }
+
+    public void setTarifaDelTipo(double tarifaDelTipo) {
+        this.tarifaDelTipo = tarifaDelTipo;
     }
 
     public String getNombre() {

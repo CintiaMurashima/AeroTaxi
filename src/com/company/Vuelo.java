@@ -2,25 +2,22 @@ package com.company;
 
 import com.company.aviones.Avion;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
 
 public class Vuelo {
 
     private Date fechaVuelo;
     private Ruta recorrido;
-    private int acompañante;
+    private int acompanante;
     private Avion avion;
     private double costo;
 
-    public Vuelo(Date fechaVuelo, Ruta recorrido, int acompañante, Avion avion, double costo) {
+    public Vuelo(Date fechaVuelo, Ruta recorrido, int acompanante, Avion avion) {
         this.fechaVuelo = fechaVuelo;
         this.recorrido = recorrido;
-        this.acompañante = acompañante;
+        this.acompanante = acompanante;
         this.avion = avion;
-        this.costo = costo;
+        this.costo =calcularPrecio();
     }
 
     public Date getFechaVuelo() {
@@ -39,12 +36,12 @@ public class Vuelo {
         this.recorrido = recorrido;
     }
 
-    public int getAcompañante() {
-        return acompañante;
+    public int getAcompanante() {
+        return acompanante;
     }
 
-    public void setAcompañante(int acompañante) {
-        this.acompañante = acompañante;
+    public void setAcompanante(int acompanante) {
+        this.acompanante = acompanante;
     }
 
     public Avion getAvion() {
@@ -62,4 +59,11 @@ public class Vuelo {
     public void setCosto(double costo) {
         this.costo = costo;
     }
+
+    public double calcularPrecio(){
+        double precioVuelo=0;
+        precioVuelo=( avion.getCostoXkm() * recorrido.getDistancia())+ ((acompanante + 1 )* 3500) + avion.getTarifaDelTipo();
+        return precioVuelo;
+    }
+    
 }

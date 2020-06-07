@@ -79,6 +79,7 @@ public class AeroTaxi {
         int seleccion;
         String ciudad= "";
         for (int i = 0; i < ciudades.size(); i++){
+            //le sumo para mostrar a partir de 1 al usuario
             System.out.println(i+1+"-" + ciudades.get(i));
         }
         seleccion = teclado.nextInt();
@@ -124,13 +125,15 @@ public class AeroTaxi {
     }
 
     public Avion seleccionarAvion(ArrayList<Avion> avionesDisponibles,int acompanantes){
-        ArrayList<Avion>avionesValidos=new ArrayList<>(); ///guardo los aviones disponibles c/capacidad de pasajeros
+        ///guardo los aviones disponibles c/capacidad de pasajeros
+        ArrayList<Avion>avionesValidos=new ArrayList<>();
         Scanner teclado = new Scanner(System.in);
         int seleccion;
         Avion avionSeleccionado= null;
 
        for(int i = 0; i < avionesDisponibles.size(); i++){
-           if(acompanantes< avionesDisponibles.get(i).getCapacidadMaxPax()){
+           /// sumo 1 a acompañantes para tener en cuenta al usuario tambien
+           if(acompanantes + 1< avionesDisponibles.get(i).getCapacidadMaxPax()){
                avionesValidos.add(avionesDisponibles.get(i));
            }
        }
@@ -148,20 +151,34 @@ public class AeroTaxi {
     }
 
 
-
 // LLamo a las funciones anteriores y las uno con la validaciones correspondientes
     public void crearVuelo(){
+        Scanner teclado = new Scanner(System.in);
+        int seleccion;
         Date fecha=ingresarFecha();
         Ruta ruta=obtenerRuta();
         int acompanantes= acompanantes();
         ArrayList<Avion> avionesDisponibles= dispoAvion(fecha);
         Avion avionSeleccionado;
+        Vuelo vuelo;
 
         if(!avionesDisponibles.isEmpty()){
             avionSeleccionado= seleccionarAvion(avionesDisponibles,acompanantes);
+            if(avionSeleccionado!=null){
+                vuelo=new Vuelo(fecha,ruta,acompanantes,avionSeleccionado);
+                System.out.println("La tarifa del vuelo es:" + vuelo.getCosto());
+                System.out.println("1- Si desea confirmar");
+                System.out.println("2- Si desea cancelar");
+                seleccion=teclado.nextInt();
+                if(seleccion == 1){
+                    vuelos.add(vuelo);
+                }
+            }
+
         }else{
             System.out.println("No hay aviones disponibles para la fecha");
         }
+
 
     }
 
