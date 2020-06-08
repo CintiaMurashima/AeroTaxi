@@ -12,8 +12,6 @@ import java.util.*;
 
 public class AeroTaxi {
 
-
-
     private ArrayList<Avion> aviones= new ArrayList<>();
     private ArrayList<Usuario> usuarios=new ArrayList<>();
     private ArrayList<Ruta> rutas = new ArrayList<>();
@@ -22,9 +20,6 @@ public class AeroTaxi {
 
 
     public AeroTaxi() throws IOException {
-        File archivoRutas = new File("rutas.json");
-        File archivoAviones = new File("aviones.json");
-        File archivoCiudades = new File("ciudades.json");
 
         ObjectMapper mapper = new ObjectMapper();
         /// Files.readString convierte archivo en String /// Paths.get es la ruta
@@ -41,6 +36,10 @@ public class AeroTaxi {
         String jsonCiudades = Files.readString(Paths.get("ciudades.json"));
         Ciudades listaCiudades = mapper.readValue(jsonCiudades, Ciudades.class);
         ciudades = listaCiudades.getCiudades();
+
+        String jsonVuelos = Files.readString(Paths.get("vuelos.json"));
+        Vuelos listaVuelos = mapper.readValue(jsonVuelos, Vuelos.class);
+        vuelos = listaVuelos.getVuelos();
     }
 
 
@@ -131,7 +130,7 @@ public class AeroTaxi {
                 j++;
             }
             if(!encontrado){
-                avionesDesocupados.add(aviones.get(j));
+                avionesDesocupados.add(aviones.get(i));
             }
         }
         return avionesDesocupados;
@@ -165,7 +164,7 @@ public class AeroTaxi {
 
 
 // LLamo a las funciones anteriores y las uno con la validaciones correspondientes
-    public void crearVuelo(){
+    public void crearVuelo() throws IOException {
         Scanner teclado = new Scanner(System.in);
         int seleccion;
         Date fecha=ingresarFecha();
@@ -185,6 +184,8 @@ public class AeroTaxi {
                 seleccion=teclado.nextInt();
                 if(seleccion == 1){
                     vuelos.add(vuelo);
+                    //guarda en archivos
+                    guardarVuelos();
                 }
             }
 
@@ -192,7 +193,12 @@ public class AeroTaxi {
             System.out.println("No hay aviones disponibles para la fecha");
         }
     }
-
+    public void guardarVuelos() throws IOException {
+        File archivoVuelos = new File("vuelos.json");
+        ObjectMapper mapper = new ObjectMapper();
+        Vuelos listaVuelos= new Vuelos(vuelos);
+        mapper.writeValue(archivoVuelos,listaVuelos);
+    }
 
 
 }

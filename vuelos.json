@@ -1,0 +1,1 @@
+{"vuelos":[{"fechaVuelo":1602298800000,"recorrido":{"ciudad1":"Buenos Aires","ciudad2":"Cordoba","distancia":695},"acompanante":2,"avion":{"@type":"Gold","nombre":"Beechcraft ","capacidadCombustible":20000.0,"costoXkm":100.0,"capacidadMaxPax":5,"velocidadMax":900.0,"tipoPropulsion":"pistones","catering":true,"tarifaDelTipo":6000.0,"wifi":true},"costo":86000.0}]}
