@@ -1,49 +1,48 @@
 package com.company;
 
 import com.company.aviones.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class AeroTaxi {
 
-    private ArrayList<Vuelo> vuelos= new ArrayList<>();
+
+
     private ArrayList<Avion> aviones= new ArrayList<>();
     private ArrayList<Usuario> usuarios=new ArrayList<>();
-    private ArrayList<Ruta> rutas= new ArrayList<>();
+    private ArrayList<Ruta> rutas = new ArrayList<>();
     private ArrayList<String> ciudades = new ArrayList<>();
+    private ArrayList<Vuelo> vuelos = new ArrayList<>();
 
 
+    public AeroTaxi() throws IOException {
+        File archivoRutas = new File("rutas.json");
+        File archivoAviones = new File("aviones.json");
+        File archivoCiudades = new File("ciudades.json");
 
-    public AeroTaxi(){
-        //creacion de rutas
-        Ruta ruta1=new Ruta("Buenos Aires","Cordoba",695);
-        Ruta ruta2=new Ruta("Buenos Aires","Santiago",1400);
-        Ruta ruta3=new Ruta("Buenos Aires","Montevideo",950);
-        Ruta ruta4=new Ruta("Cordoba","Montevideo",1190);
-        Ruta ruta5=new Ruta("Cordoba","Santiago",1050);
-        Ruta ruta6=new Ruta("Montevideo","Santiago",2100);
+        ObjectMapper mapper = new ObjectMapper();
+        /// Files.readString convierte archivo en String /// Paths.get es la ruta
+        String jsonRutas = Files.readString(Paths.get("rutas.json"));
+        //
+        Rutas listaRutas = mapper.readValue(jsonRutas, Rutas.class);
+        ///
+        rutas = listaRutas.getRutas();
 
-        ciudades.add("Buenos Aires");
-        ciudades.add("Cordoba");
-        ciudades.add("Santiago");
-        ciudades.add("Montevideo");
+        String jsonAviones = Files.readString(Paths.get("aviones.json"));
+        Aviones listaAviones = mapper.readValue(jsonAviones, Aviones.class);
+        aviones = listaAviones.getAviones();
 
-        Bronze avion1=new Bronze("Avion1",20000,150,10,900, Propulsion.helice);
-        Gold avion2=new Gold("Avion2",30000,100,5,900, Propulsion.pistones,true);
-        Silver avion3=new Silver("Avion3",20000,150,7,900, Propulsion.helice);
-
-        aviones.add(avion1);
-        aviones.add(avion2);
-        aviones.add(avion3);
-
-
-
-
+        String jsonCiudades = Files.readString(Paths.get("ciudades.json"));
+        Ciudades listaCiudades = mapper.readValue(jsonCiudades, Ciudades.class);
+        ciudades = listaCiudades.getCiudades();
     }
+
 
     public Date ingresarFecha(){
 
@@ -192,8 +191,6 @@ public class AeroTaxi {
         }else{
             System.out.println("No hay aviones disponibles para la fecha");
         }
-
-
     }
 
 

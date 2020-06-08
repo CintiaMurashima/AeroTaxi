@@ -1,5 +1,16 @@
 package com.company.aviones;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+/// Esto aclara en el archivo el subtipo de cada clase
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Bronze.class, name = "Bronze"),
+
+        @JsonSubTypes.Type(value = Gold.class, name = "Gold"),
+
+        @JsonSubTypes.Type(value = Silver.class, name = "Silver") }
+)
 public abstract class Avion {
 
     private String nombre;
@@ -23,6 +34,10 @@ public abstract class Avion {
         this.catering = catering;
         this.tarifaDelTipo= tarifaDelTipo;
     }
+
+    public Avion() {
+    }
+
 
     public double getTarifaDelTipo() {
         return tarifaDelTipo;

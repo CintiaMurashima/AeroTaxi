@@ -7,6 +7,11 @@ public class Bronze extends Avion {
         super(nombre, capacidadCombustible, costoXkm, capacidadMaxPax, velocidadMax, tipoPropulsion, false,3000);
     }
 
+    public Bronze() {
+        super();
+    }
+
+
 
 
 

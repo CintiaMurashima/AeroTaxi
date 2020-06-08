@@ -10,6 +10,9 @@ public class Gold extends Avion {
         this.wifi=wifi;
     }
 
+    public Gold(){
+    }
+
     public boolean isWifi() {
         return wifi;
     }

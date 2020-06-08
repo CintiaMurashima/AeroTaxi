@@ -12,6 +12,9 @@ public class Ruta {
         this.distancia = distancia;
     }
 
+    public Ruta() {
+    }
+
 
     public String getCiudad1() {
         return ciudad1;
@@ -35,5 +38,14 @@ public class Ruta {
 
     public void setDistancia(int distancia) {
         this.distancia = distancia;
+    }
+
+    @Override
+    public String toString() {
+        return "Ruta{" +
+                "ciudad1='" + ciudad1 + '\'' +
+                ", ciudad2='" + ciudad2 + '\'' +
+                ", distancia=" + distancia +
+                '}';
     }
 }

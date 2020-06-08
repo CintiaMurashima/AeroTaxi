@@ -2,16 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86116314-3ed9-4473-9c63-a2a47978addd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Archivos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Ciudades.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Rutas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Vuelos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/aviones/Aviones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AeroTaxi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AeroTaxi.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/AeroTaxi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/AeroTaxi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Vuelo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Vuelo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Ruta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Ruta.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/aviones/Avion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/aviones/Avion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/aviones/Bronze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/aviones/Bronze.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/aviones/Gold.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/aviones/Gold.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/aviones/Silver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/aviones/Silver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/AeroTaxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/AeroTaxi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Ruta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Ruta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/aviones/Avion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Avion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/aviones/Bronze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Bronze.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/aviones/Gold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Gold.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/aviones/Silver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Silver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +57,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -79,10 +98,14 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser" timestamp="1591504515813">
+    <state x="233" y="0" key="#Project_Structure" timestamp="1591561032945">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1591504515813" />
+    <state x="233" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1591561032945" />
+    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser" timestamp="1591575360792">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1591575360792" />
     <state x="365" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591506394396">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -91,58 +114,62 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1590892124276" />
-    <state width="640" height="213" key="GridCell.Tab.0.bottom" timestamp="1591511056620">
+    <state x="392" y="95" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1591561214389">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="640" height="213" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1591511056620" />
-    <state width="640" height="213" key="GridCell.Tab.0.center" timestamp="1591511056620">
+    <state x="392" y="95" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1280.680@0.0.1280.680" timestamp="1591561214389" />
+    <state x="348" y="82" key="FileChooserDialogImpl" timestamp="1591560431702">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="640" height="213" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1591511056620" />
-    <state width="640" height="213" key="GridCell.Tab.0.left" timestamp="1591511056620">
+    <state x="348" y="82" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1591560431702" />
+    <state width="1281" height="213" key="GridCell.Tab.0.bottom" timestamp="1591576939747">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="640" height="213" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1591511056620" />
-    <state width="640" height="213" key="GridCell.Tab.0.right" timestamp="1591511056620">
+    <state width="1281" height="213" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1591576939747" />
+    <state width="1281" height="213" key="GridCell.Tab.0.center" timestamp="1591576939747">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="640" height="213" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1591511056620" />
-    <state width="640" height="213" key="GridCell.Tab.1.bottom" timestamp="1591511071557">
+    <state width="1281" height="213" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1591576939747" />
+    <state width="1281" height="213" key="GridCell.Tab.0.left" timestamp="1591576939747">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="640" height="213" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1591511071557" />
-    <state width="640" height="213" key="GridCell.Tab.1.center" timestamp="1591511071557">
+    <state width="1281" height="213" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1591576939747" />
+    <state width="1281" height="213" key="GridCell.Tab.0.right" timestamp="1591576939747">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="640" height="213" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1591511071557" />
-    <state width="640" height="213" key="GridCell.Tab.1.left" timestamp="1591511071557">
+    <state width="1281" height="213" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1591576939747" />
+    <state width="1281" height="213" key="GridCell.Tab.1.bottom" timestamp="1591576939747">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="640" height="213" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1591511071557" />
-    <state width="640" height="213" key="GridCell.Tab.1.right" timestamp="1591511071557">
+    <state width="1281" height="213" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1591576939747" />
+    <state width="1281" height="213" key="GridCell.Tab.1.center" timestamp="1591576939747">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="640" height="213" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1591511071557" />
+    <state width="1281" height="213" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1591576939747" />
+    <state width="1281" height="213" key="GridCell.Tab.1.left" timestamp="1591576939747">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1281" height="213" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1591576939747" />
+    <state width="1281" height="213" key="GridCell.Tab.1.right" timestamp="1591576939747">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1281" height="213" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1591576939747" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1591576085078">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1591576085078" />
+    <state x="91" y="0" key="new project wizard" timestamp="1591554863129">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="91" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1591554863129" />
+    <state x="383" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1591576800492">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="383" y="0" key="refactoring.ChangeSignatureDialog/0.0.1280.680@0.0.1280.680" timestamp="1591576800492" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1591503682094">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1591503682094" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/AeroTaxi.java</url>
-          <line>181</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/AeroTaxi.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AeroTaxi$Main.ic" NAME="Main Coverage Results" MODIFIED="1591484535647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
