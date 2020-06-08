@@ -1,19 +1,87 @@
 package com.company;
 
-public class Menu {
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
-/*
-    public void vuelo{
+public class Menu{
 
-    }
+    public void mostrarMenuPrincial(){
+        Scanner teclado = new Scanner(System.in);
+        boolean salir = false;
+        int opcion; //Guardaremos la opcion del usuario
 
-    Para contratar un nuevo vuelo, el usuario deberá completar un cuestionario:
-            1. Inicialmente indicar la fecha deseada para realizar un vuelo.
-2. Seleccionar el origen de su vuelo y posteriormente el destino.
-            3. El usuario debe indicar la cantidad de acompañantes que tendrá en el vuelo.
-4. Ahora el usuario debe seleccionar un avión. El sistema se encargará de
-    mostrar los aviones disponibles para esa fecha y el usuario elige el deseado.
-5. Por último, el sistema debe mostrar el costo total del vuelo y el usuario
-    deberá confirmar para generar el vuelo.*/
+        while(!salir) {
+
+            System.out.println("1. Iniciar sesion");
+            System.out.println("2. Registrarse");
+            System.out.println("3. Volver al menu anterior");
+
+            try {
+
+                System.out.println("Escribe una de las opciones");
+                opcion = teclado.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        System.out.println("Has seleccionado Iniciar sesion");
+                        // si esta validado
+                        menuCreacionVuelo();
+
+                        break;
+                    case 2:
+                        System.out.println("Has seleccionado Registrarse");
+
+                        break;
+                    case 3:
+                        salir = true;
+                        break;
+                    default:
+                        System.out.println("Solo opcion entre  1 y 3");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Debes insertar un número");
+                opcion = teclado.nextInt();        }
+        }
 
 }
+
+    public void menuCreacionVuelo() {
+
+        Scanner teclado = new Scanner(System.in);
+        boolean salir = false;
+        int opcion; //Guardaremos la opcion del usuario
+
+        System.out.println("1. Reservar vuelo");
+        System.out.println("2. Cancelar vuelo");
+        System.out.println("3. Salir");
+        while (!salir) {
+            try {
+
+                System.out.println("Escribe una de las opciones");
+                opcion = teclado.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        System.out.println("Reservar Vuelo");
+
+                        break;
+                    case 2:
+                        System.out.println("Cancelar vuelo");
+                        break;
+                    case 3:
+                        salir = true;
+                        break;
+                    default:
+                        System.out.println("Solo opcion entre  1 y 3");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Debes insertar un número");
+                opcion = teclado.nextInt();
+            }
+        }
+    }
+
+}
+
+
+

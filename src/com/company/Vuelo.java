@@ -20,6 +20,9 @@ public class Vuelo {
         this.costo =calcularPrecio();
     }
 
+    public Vuelo() {
+    }
+
     public Date getFechaVuelo() {
         return fechaVuelo;
     }
