@@ -8,7 +8,7 @@ public class Main {
 	AeroTaxi a=new AeroTaxi();
 	Menu menu= new Menu();
 
-	menu.mostrarMenuPrincial();
+	//menu.mostrarMenuPrincial();
 
 	a.crearVuelo();
 

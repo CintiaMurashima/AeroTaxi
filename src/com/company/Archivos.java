@@ -45,16 +45,16 @@ public class Archivos {
 
         ///Creacion de aviones
 
-        Bronze Pilatus = new Bronze("Pilatus", 30000, 150, 10, 960, Propulsion.helice);
-        Bronze DassaultFalcon = new Bronze("Dassault Falcon", 15000, 300, 7, 900, Propulsion.helice);
-        Bronze Learjet= new Bronze("Learjet", 35000, 180, 15, 950, Propulsion.helice);
-        Gold Beechcraft  = new Gold("Beechcraft ", 20000, 100, 5, 900, Propulsion.pistones, true);
-        Gold Embraer = new Gold("Embraer ", 24000, 100, 8, 600, Propulsion.pistones, true);
-        Gold Eclipse  = new Gold("Eclipse ", 15000, 150, 6, 700, Propulsion.reaccion, false);
-        Gold Cirrus  = new Gold("Cirrus ", 35000, 160, 12, 800, Propulsion.pistones, false);
-        Silver Phenom  = new Silver("Phenom", 10000, 250, 2, 900, Propulsion.reaccion);
-        Silver Falcon  = new Silver("Falcon", 15000, 150, 6, 800, Propulsion.helice);
-        Silver Fuchslocher  = new Silver("Fuchslocher", 12000, 250, 4, 980, Propulsion.reaccion);
+        Bronze Pilatus = new Bronze("Pilatus", 30000, 150, 10, 960, Propulsion.helice,3000);
+        Bronze DassaultFalcon = new Bronze("Dassault Falcon", 15000, 300, 7, 900, Propulsion.helice,3000);
+        Bronze Learjet= new Bronze("Learjet", 35000, 180, 15, 950, Propulsion.helice,3000);
+        Gold Beechcraft  = new Gold("Beechcraft ", 20000, 100, 5, 900, Propulsion.pistones, true,6000);
+        Gold Embraer = new Gold("Embraer ", 24000, 100, 8, 600, Propulsion.pistones, true,6000);
+        Gold Eclipse  = new Gold("Eclipse ", 15000, 150, 6, 700, Propulsion.reaccion, false,6000);
+        Gold Cirrus  = new Gold("Cirrus ", 35000, 160, 12, 800, Propulsion.pistones, false,6000);
+        Silver Phenom  = new Silver("Phenom", 10000, 250, 2, 900, Propulsion.reaccion,4000);
+        Silver Falcon  = new Silver("Falcon", 15000, 150, 6, 800, Propulsion.helice,4000);
+        Silver Fuchslocher  = new Silver("Fuchslocher", 12000, 250, 4, 980, Propulsion.reaccion,4000);
 
         aviones.add(Pilatus);
         aviones.add(DassaultFalcon);

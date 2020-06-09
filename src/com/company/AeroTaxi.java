@@ -19,7 +19,38 @@ public class AeroTaxi {
     private ArrayList<Vuelo> vuelos = new ArrayList<>();
 
 
-    public AeroTaxi() throws IOException {
+
+    public AeroTaxi() {
+        Scanner teclado = new Scanner(System.in);
+        int seleccion=0;
+        Archivos a = new Archivos();
+        try {
+            leerArchivos();
+        } catch (IOException e) {
+            ///si no se puede ver el archivo , le pregunto al usuario si los quiere cargar por defecto
+            System.out.println("No se pudo cargar la información de los archivos");
+            System.out.println("¿Desea volver a generarla?");
+            System.out.println("1-Si");
+            System.out.println("2-No");
+            do {
+                try {
+                    seleccion = teclado.nextInt();
+                } catch (InputMismatchException ex) {
+                    System.out.println("Debe seleccionar opcion 1 o 2");
+                }
+            } while (!(seleccion >=1 && seleccion <= 2));
+            if(seleccion == 1){
+                try{
+                    a.guardarArchivos();// genero los archivos nuevamente
+                    leerArchivos();
+                }catch(IOException e1){
+                    System.out.println("No se pudieron generar los archivos");
+                }
+            }
+        }
+    }
+
+    public void leerArchivos() throws IOException{
 
         ObjectMapper mapper = new ObjectMapper();
         /// Files.readString convierte archivo en String /// Paths.get es la ruta
@@ -42,60 +73,79 @@ public class AeroTaxi {
         vuelos = listaVuelos.getVuelos();
     }
 
-
     public Date ingresarFecha(){
 
         Scanner teclado = new Scanner(System.in);
         String fechaTeclado;
         System.out.println("Introduzca la fecha con formato dd/mm/yyyy");
-        fechaTeclado= teclado.nextLine();
 
         SimpleDateFormat formatearFecha = new SimpleDateFormat("dd/MM/yyyy");
         Date fecha = null; //creo el tipo fecha
 
-        try{
-            fecha = formatearFecha.parse(fechaTeclado); // parse convierte string en date
-        } catch (Exception e) {
-            System.out.println("Fecha invalida");
-        }
-        return fecha;
+        do {
+            try {
+                fechaTeclado= teclado.nextLine();
+                fecha = formatearFecha.parse(fechaTeclado); // parse convierte string en date
+            } catch (Exception e) {
+                System.out.println("Fecha o formato invalido");
+                System.out.println("Introduzca la fecha con formato dd/mm/yyyy");
+            }
+        } while (fecha == null);
 
+        return fecha;
     }
     public Ruta obtenerRuta() {
         Ruta ruta = null;
         int i=0;
-        String ciudad1;
-        String ciudad2;
+        String ciudad1="";
+        String ciudad2="";
+
         System.out.println("Introduzca el origen");
         ciudad1= seleccionarCiudad();
-        System.out.println("Introduzca el destino");
-        ciudad2= seleccionarCiudad();
-        if(!ciudad1.equals(ciudad2)) {
-            while (i < rutas.size() && ruta == null ){
-                if (ciudad1.equals(rutas.get(i).getCiudad1()) || ciudad1.equals(rutas.get(i).getCiudad2()) &&
-                        ciudad2.equals(rutas.get(i).getCiudad1()) || ciudad2.equals(rutas.get(i).getCiudad2()))
-                {
-                    ruta=rutas.get(i);
-                }
-                i++;
+
+        do{
+            if (ciudad1.equals(ciudad2)){
+                System.out.println("No puede repetir ciudades");
             }
-        }else{
-            System.out.println("No puede repetir ciudades");
+            System.out.println("Introduzca el destino");
+            ciudad2= seleccionarCiudad();
+        } while (ciudad1.equals(ciudad2));
+
+        /// Logica para encontrar la ruta
+        while (i < rutas.size() && ruta == null ){
+            if (ciudad1.equals(rutas.get(i).getCiudad1()) || ciudad1.equals(rutas.get(i).getCiudad2()) &&
+                    ciudad2.equals(rutas.get(i).getCiudad1()) || ciudad2.equals(rutas.get(i).getCiudad2()))
+            {
+                ruta=rutas.get(i);
+            }
+            i++;
         }
+
+
         return ruta;
     }
 
     public String seleccionarCiudad() {
 
         Scanner teclado = new Scanner(System.in);
-        int seleccion;
+        int seleccion=0;
         String ciudad= "";
         for (int i = 0; i < ciudades.size(); i++){
             //le sumo para mostrar a partir de 1 al usuario
             System.out.println(i+1+"-" + ciudades.get(i));
         }
-        seleccion = teclado.nextInt();
-        ciudad=ciudades.get(seleccion-1);
+        do {
+            try {
+                seleccion = teclado.nextInt();
+                ciudad=ciudades.get(seleccion-1);
+
+            } catch (InputMismatchException ime){
+                System.out.println("El numero ingresado es incorrecto, vuelva a intentar");
+                teclado.next();
+            }
+        } while (seleccion > ciudades.size());
+
+
         return ciudad;
     }
 
@@ -103,8 +153,17 @@ public class AeroTaxi {
     public int acompanantes(){
         Scanner teclado = new Scanner(System.in);
         int acomp=0;
+
         System.out.println("Introduzca cantidad de acompañantes");
-        acomp= teclado.nextInt();
+        do {
+            try {
+                acomp = teclado.nextInt();
+            } catch (InputMismatchException ime){
+                System.out.println("El numero ingresado es incorrecto, vuelva a intentar");
+               teclado.next();
+            }
+        } while (!(acomp >=0));
+
         return acomp;
     }
 
@@ -140,7 +199,7 @@ public class AeroTaxi {
         ///guardo los aviones disponibles c/capacidad de pasajeros
         ArrayList<Avion>avionesValidos=new ArrayList<>();
         Scanner teclado = new Scanner(System.in);
-        int seleccion;
+        int seleccion=0;
         Avion avionSeleccionado= null;
 
        for(int i = 0; i < avionesDisponibles.size(); i++){
@@ -150,13 +209,21 @@ public class AeroTaxi {
            }
        }
        if(avionesValidos.isEmpty()){
-           System.out.println("“No tenemos aviones disponibles con esa capacidad de pasajeros”.");
+           System.out.println("No tenemos aviones disponibles con esa capacidad de pasajeros");
        }else {
            System.out.println("Seleccione un avion");
            for (int i = 0; i < avionesValidos.size(); i++) {
                System.out.println(i + 1 + avionesValidos.get(i).getNombre());//
            }
-           seleccion = teclado.nextInt();
+           do {
+               try {
+                   seleccion = teclado.nextInt();
+               } catch (InputMismatchException ime){
+                   System.out.println("El numero ingresado es incorrecto, vuelva a intentar");
+                   teclado.next();
+               }
+           } while (!(seleccion <= avionesValidos.size()));
+
            avionSeleccionado=avionesValidos.get(seleccion-1);
        }
        return avionSeleccionado;
@@ -164,9 +231,9 @@ public class AeroTaxi {
 
 
 // LLamo a las funciones anteriores y las uno con la validaciones correspondientes
-    public void crearVuelo() throws IOException {
+    public void crearVuelo() {
         Scanner teclado = new Scanner(System.in);
-        int seleccion;
+        int seleccion=0;
         Date fecha=ingresarFecha();
         Ruta ruta=obtenerRuta();
         int acompanantes= acompanantes();
@@ -181,11 +248,24 @@ public class AeroTaxi {
                 System.out.println("La tarifa del vuelo es:" + vuelo.getCosto());
                 System.out.println("1- Si desea confirmar");
                 System.out.println("2- Si desea cancelar");
-                seleccion=teclado.nextInt();
+
+                do {
+                    try {
+                        seleccion = teclado.nextInt();
+                    } catch (InputMismatchException ime){
+                        System.out.println("Solo puedes insertar números de las opciones dadas");
+                        teclado.next();
+                    }
+                } while (!(seleccion > 0 && seleccion < 3));
+
                 if(seleccion == 1){
-                    vuelos.add(vuelo);
-                    //guarda en archivos
-                    guardarVuelos();
+                    try{
+                        vuelos.add(vuelo);
+                        //guarda en archivos
+                        guardarVuelos();
+                    } catch(IOException e) {
+                        System.out.println("No se pudo guardar el vuelo");
+                    }
                 }
             }
 
