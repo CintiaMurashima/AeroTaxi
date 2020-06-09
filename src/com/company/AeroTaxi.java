@@ -76,21 +76,27 @@ public class AeroTaxi {
     public Date ingresarFecha(){
 
         Scanner teclado = new Scanner(System.in);
-        String fechaTeclado;
-        System.out.println("Introduzca la fecha con formato dd/mm/yyyy");
+        String pattern = "yyyy-MM-dd";
+        System.out.println("Introduzca la fecha con formato yyyy-MM-dd");
 
-        SimpleDateFormat formatearFecha = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatearFecha = new SimpleDateFormat(pattern);
+        Date fechaActual= new Date();
         Date fecha = null; //creo el tipo fecha
 
         do {
             try {
-                fechaTeclado= teclado.nextLine();
-                fecha = formatearFecha.parse(fechaTeclado); // parse convierte string en date
+                if(fecha != null && fecha.before(fechaActual))
+                {
+                 System.out.println(fechaActual);
+                 System.out.println("Debe ingresar una fecha superior a la actual");
+                }
+                pattern= teclado.nextLine();
+                fecha = formatearFecha.parse(pattern); // parse convierte string en date
             } catch (Exception e) {
                 System.out.println("Fecha o formato invalido");
-                System.out.println("Introduzca la fecha con formato dd/mm/yyyy");
+                System.out.println("Introduzca la fecha con formato yyyy-MM-dd");
             }
-        } while (fecha == null);
+        } while (fecha == null || (fecha.before(fechaActual)));
 
         return fecha;
     }
@@ -120,7 +126,6 @@ public class AeroTaxi {
             }
             i++;
         }
-
 
         return ruta;
     }
@@ -217,12 +222,15 @@ public class AeroTaxi {
            }
            do {
                try {
+                   if(seleccion > avionesValidos.size()){
+                       System.out.println("El numero ingresado es incorrecto, vuelva a intentar");
+                   }
                    seleccion = teclado.nextInt();
                } catch (InputMismatchException ime){
-                   System.out.println("El numero ingresado es incorrecto, vuelva a intentar");
+                   System.out.println("Debera ingresar un numero");
                    teclado.next();
                }
-           } while (!(seleccion <= avionesValidos.size()));
+           } while (!(seleccion <= avionesValidos.size()) || seleccion > avionesValidos.size());
 
            avionSeleccionado=avionesValidos.get(seleccion-1);
        }

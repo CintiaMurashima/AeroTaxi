@@ -2,6 +2,9 @@ package com.company.aviones;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+import java.util.Objects;
+
 /// Esto aclara en el archivo el subtipo de cada clase
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
 @JsonSubTypes({
@@ -103,5 +106,17 @@ public abstract class Avion {
         this.catering = catering;
     }
 
+    /// compara los vuelos para mostrar los desocupados con el criterio de nombre
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Avion avion = (Avion) o;
+        return nombre.equals(avion.nombre);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre);
+    }
 }
