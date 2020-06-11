@@ -215,6 +215,7 @@ public class AeroTaxi {
        }
        if(avionesValidos.isEmpty()){
            System.out.println("No tenemos aviones disponibles con esa capacidad de pasajeros");
+
        }else {
            System.out.println("Seleccione un avion");
            for (int i = 0; i < avionesValidos.size(); i++) {
