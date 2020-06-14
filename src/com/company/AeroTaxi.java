@@ -17,7 +17,7 @@ public class AeroTaxi {
     private ArrayList<Ruta> rutas = new ArrayList<>();
     private ArrayList<String> ciudades = new ArrayList<>();
     private ArrayList<Vuelo> vuelos = new ArrayList<>();
-    
+
     public AeroTaxi() {
         Scanner teclado = new Scanner(System.in);
         int seleccion=0;
