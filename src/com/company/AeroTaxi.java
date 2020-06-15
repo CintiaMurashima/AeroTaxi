@@ -280,6 +280,40 @@ public class AeroTaxi {
             System.out.println("No hay aviones disponibles para la fecha");
         }
     }
+    public void cancelar_vuelo() {
+        Scanner teclado = new Scanner(System.in);
+        int seleccion=0;
+        int j = 01;
+        if(vuelos.isEmpty()) {
+            System.out.println("El Usuario no esta registrado en ningún vuelo\n"); //Excepcion en caso de que el usuario no tenga vuelos
+        }else {
+            System.out.println("Vuelos en los que el Usuario se encuentra registrado: \n"); //Printeo
+            while (j < vuelos.size()) //Loop para printear los vuelos
+            {
+                System.out.println(j + ") Fecha: " + vuelos.get(j).getFechaVuelo() + ", Tipo de Avion: " + vuelos.get(j).getAvion() + ", Costo del Vuelo: " + vuelos.get(j).getCosto() + ", Recorrido: " + vuelos.get(j).getRecorrido() + ", Acompañantes: " + vuelos.get(j).getAcompanante() + "\n");
+                j++;
+            }
+            System.out.println("Ingrese el Numero de vuelo que desea cancelar. Si no desea cancelar ningun vuelo, seleccione 0\n");
+            do {
+                try {
+                    seleccion = teclado.nextInt(); ///Si el proximo no es un int o es menor a 0, entonces arroja un error
+                } catch (InputMismatchException ime){
+                    System.out.println("Solo puedes insertar números de la lista o 0");
+                    teclado.next();
+                }
+            } while (!(-1 < seleccion && seleccion < j));
+            if(seleccion != 0){ ///Si la seleccion es correcta y no es 0 (en cuyo caso se sale de la funcion), remueve el vuelo y guarda los cambios
+                vuelos.remove(seleccion);
+                try{
+                    //guarda en archivos
+                    guardarVuelos();
+                } catch(IOException e) {
+                    System.out.println("No se pudo guardar el vuelo");
+                }
+            }
+        }
+    }
+
     public void guardarVuelos() throws IOException {
         File archivoVuelos = new File("vuelos.json");
         ObjectMapper mapper = new ObjectMapper();

@@ -80,8 +80,8 @@ public class Menu {
                         aeroTaxi.crearVuelo();
                         break;
                     case 2:
-
                         System.out.println("Cancelar vuelo");
+                        aeroTaxi.cancelar_vuelo();
                         break;
                     case 3:
                         salir = true;
