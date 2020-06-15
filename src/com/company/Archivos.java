@@ -12,6 +12,7 @@ public class Archivos {
     private ArrayList<Ruta> rutas= new ArrayList<>();
     private ArrayList<Avion> aviones= new ArrayList<>();
     private ArrayList<String> ciudades = new ArrayList<>();
+    private ArrayList<Usuario> usuarios = new ArrayList<>();
 
 
     public Archivos() {
@@ -22,7 +23,7 @@ public class Archivos {
         File archivoRutas =new File("rutas.json");
         File archivoAviones =new File("aviones.json");
         File archivoCiudades =new File("ciudades.json");
-
+        File archivoUsuarios =new File("usuarios.json");
 
         ObjectMapper mapper=new ObjectMapper();
 
@@ -80,9 +81,22 @@ public class Archivos {
         Ciudades ciu = new Ciudades(ciudades);
         mapper.writeValue(archivoCiudades,ciu);
 
+        ///Creacion de usuarios
+        Usuario  usuario1 = new Usuario ("Isaias","Calfin", "42.112.334", 20);
+        Usuario  usuario2 = new Usuario ("Cintia","Murashima", "40.127.458", 23);
+        Usuario  usuario3 = new Usuario ("Juan","Corzon", "32.134.674", 57);
+        Usuario  usuario4 = new Usuario ("Pablo","Rebirt", "34.865.456", 60);
+        Usuario  usuario5 = new Usuario ("Evaristo","Rodriguez", "54.865.436", 40);
+        Usuario  usuario6 = new Usuario ("Carlo","Cangresco", "66.775.365", 27);
 
-
-
+        usuarios.add(usuario1);
+        usuarios.add(usuario2);
+        usuarios.add(usuario3);
+        usuarios.add(usuario4);
+        usuarios.add(usuario5);
+        usuarios.add(usuario6);
+        Usuarios usu= new Usuarios(usuarios);
+        mapper.writeValue(archivoUsuarios,usu);
 
     }
 

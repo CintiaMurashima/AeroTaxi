@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86116314-3ed9-4473-9c63-a2a47978addd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/AeroTaxi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/AeroTaxi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/AeroTaxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/AeroTaxi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Menu.java" afterDir="false" />
-    </list>
+    <list default="true" id="86116314-3ed9-4473-9c63-a2a47978addd" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,15 +26,21 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -84,10 +82,11 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1591561032945" />
-    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser" timestamp="1591583602157">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="476" y="52" key="#com.intellij.ide.util.MemberChooser" timestamp="1592241949031">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1591583602157" />
+    <state x="476" y="52" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1067.560@0.0.1366.728" timestamp="1592241949031" />
     <state x="438" y="226" width="404" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591586440786">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -140,26 +139,37 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1281" height="213" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1591823888132" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1591576085078">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="152" y="0" key="SettingsEditor" timestamp="1592235185846">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1591576085078" />
+    <state x="152" y="0" key="SettingsEditor/0.0.1366.728/1366.0.1067.560@0.0.1366.728" timestamp="1592235185846" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1592237823008">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728/1366.0.1067.560@0.0.1366.728" timestamp="1592237823008" />
+    <state x="376" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592080628266">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="376" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728/1366.0.1067.560@0.0.1366.728" timestamp="1592080628266" />
     <state x="91" y="0" key="new project wizard" timestamp="1591554863129">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="91" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1591554863129" />
-    <state x="383" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1591576800492">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="409" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1592237560240">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="383" y="0" key="refactoring.ChangeSignatureDialog/0.0.1280.680@0.0.1280.680" timestamp="1591576800492" />
+    <state x="409" y="0" key="refactoring.ChangeSignatureDialog/0.0.1366.728/1366.0.1067.560@0.0.1366.728" timestamp="1592237560240" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1591503682094">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1591503682094" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1591672987615">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="323" y="1" width="718" height="726" key="search.everywhere.popup" timestamp="1592237825344">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1591672987615" />
+    <state x="323" y="1" width="718" height="726" key="search.everywhere.popup/0.0.1366.728/1366.0.1067.560@0.0.1366.728" timestamp="1592237825344" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AeroTaxi$Main.ic" NAME="Main Coverage Results" MODIFIED="1591743781776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
