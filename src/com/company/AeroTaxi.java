@@ -13,7 +13,7 @@ import java.util.*;
 public class AeroTaxi {
 
     private ArrayList<Avion> aviones= new ArrayList<>();
-    private ArrayList<Usuario> usuarios=new ArrayList<>();
+    private Usuarios usuarios=new Usuarios();
     private ArrayList<Ruta> rutas = new ArrayList<>();
     private ArrayList<String> ciudades = new ArrayList<>();
     private ArrayList<Vuelo> vuelos = new ArrayList<>();
@@ -241,17 +241,17 @@ public class AeroTaxi {
     public void crearVuelo() {
         Scanner teclado = new Scanner(System.in);
         int seleccion=0;
+        Usuario usu=usuarios.seleccionarUsuario(this.usuarios);
         Date fecha=ingresarFecha();
         Ruta ruta=obtenerRuta();
         int acompanantes= acompanantes();
         ArrayList<Avion> avionesDisponibles= dispoAvion(fecha);
         Avion avionSeleccionado;
         Vuelo vuelo;
-
         if(!avionesDisponibles.isEmpty()){
             avionSeleccionado= seleccionarAvion(avionesDisponibles,acompanantes);
             if(avionSeleccionado!=null){
-                vuelo=new Vuelo(fecha,ruta,acompanantes,avionSeleccionado);
+                vuelo=new Vuelo(fecha,ruta,acompanantes,avionSeleccionado,usu.getDni());
                 System.out.println("La tarifa del vuelo es:" + vuelo.getCosto());
                 System.out.println("1- Si desea confirmar");
                 System.out.println("2- Si desea cancelar");
@@ -321,5 +321,11 @@ public class AeroTaxi {
         mapper.writeValue(archivoVuelos,listaVuelos);
     }
 
+        public String mostrarUsuVuelo(Usuario usu ,Vuelos todos){
+        String cadena="";
+        cadena = usu.toString();
+        cadena += todos.mostrarLosVuelosUsu(usu.getDni());
+        return cadena;
+    }
 
 }

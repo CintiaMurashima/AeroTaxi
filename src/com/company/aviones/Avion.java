@@ -25,6 +25,7 @@ public abstract class Avion {
     private boolean catering;
     private double tarifaDelTipo;
 
+    public String mostrarAvion()
 
     public Avion(String nombre,double capacidadCombustible, double costoXkm, int capacidadMaxPax,
                  double velocidadMax, Propulsion tipoPropulsion, boolean catering, double tarifaDelTipo) {
@@ -118,5 +119,19 @@ public abstract class Avion {
     @Override
     public int hashCode() {
         return Objects.hash(nombre);
+    }
+
+    @Override
+    public String toString() {
+        return "Avion{" +
+                "nombre='" + nombre + '\'' +
+                ", capacidadCombustible=" + capacidadCombustible +
+                ", costoXkm=" + costoXkm +
+                ", capacidadMaxPax=" + capacidadMaxPax +
+                ", velocidadMax=" + velocidadMax +
+                ", tipoPropulsion=" + tipoPropulsion +
+                ", catering=" + catering +
+                ", tarifaDelTipo=" + tarifaDelTipo +
+                '}';
     }
 }
