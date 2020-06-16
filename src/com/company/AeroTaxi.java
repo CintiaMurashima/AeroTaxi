@@ -242,7 +242,7 @@ public class AeroTaxi {
         Scanner teclado = new Scanner(System.in);
         int seleccion=0;
         Usuario usu=usuarios.seleccionarUsuario(this.usuarios);
-        Date fecha=ingresarFecha();
+        Date fecha= ingresarFecha();
         Ruta ruta=obtenerRuta();
         int acompanantes= acompanantes();
         ArrayList<Avion> avionesDisponibles= dispoAvion(fecha);
@@ -280,10 +280,34 @@ public class AeroTaxi {
             System.out.println("No hay aviones disponibles para la fecha");
         }
     }
+
+    public Date sumarUnDia(Date fecha){
+        Calendar calendar=Calendar.getInstance();
+        calendar.setTime(fecha);
+        calendar.add(Calendar.DAY_OF_YEAR,1);
+        return calendar.getTime();
+    }
+
+    public boolean validarCancelacion(Date fecha){
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat formatearFecha = new SimpleDateFormat(pattern);
+        Date fechaActual= new Date();
+        Date fechaTraida=sumarUnDia(fecha);
+        boolean cancel=false;
+
+        if(fechaActual.compareTo(fechaTraida)==0){
+            System.out.println("No se puede cancelar un vuelo con menos de 24hs de anticipacion");
+
+        }else if(fechaActual.compareTo(fechaTraida)<0){
+            cancel=true;
+        }
+        return cancel;
+    }
+
     public void cancelar_vuelo() {
         Scanner teclado = new Scanner(System.in);
         int seleccion=0;
-        int j = 01;
+        int j = 0;
         if(vuelos.isEmpty()) {
             System.out.println("El Usuario no esta registrado en ningún vuelo\n"); //Excepcion en caso de que el usuario no tenga vuelos
         }else {
@@ -303,13 +327,15 @@ public class AeroTaxi {
                 }
             } while (!(-1 < seleccion && seleccion < j));
             if(seleccion != 0){ ///Si la seleccion es correcta y no es 0 (en cuyo caso se sale de la funcion), remueve el vuelo y guarda los cambios
-                vuelos.remove(seleccion);
-                try{
-                    //guarda en archivos
-                    guardarVuelos();
-                } catch(IOException e) {
-                    System.out.println("No se pudo guardar el vuelo");
+                if (validarCancelacion(vuelos.get(seleccion).getFechaVuelo())) {
+                        vuelos.remove(seleccion);}
                 }
+            try{
+                //guarda en archivos
+                guardarVuelos();
+                System.out.println("Vuelo cancelado exitosamente");
+            } catch(IOException e) {
+                System.out.println("No se pudo guardar la cancelacion");
             }
         }
     }

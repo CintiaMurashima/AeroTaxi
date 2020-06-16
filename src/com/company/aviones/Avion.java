@@ -25,8 +25,6 @@ public abstract class Avion {
     private boolean catering;
     private double tarifaDelTipo;
 
-    public String mostrarAvion()
-
     public Avion(String nombre,double capacidadCombustible, double costoXkm, int capacidadMaxPax,
                  double velocidadMax, Propulsion tipoPropulsion, boolean catering, double tarifaDelTipo) {
         this.nombre=nombre;

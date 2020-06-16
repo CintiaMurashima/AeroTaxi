@@ -62,28 +62,6 @@ public class Vuelos {
         return  listado;
     }
 
-    public Date sumarUnDia(Date fecha){
-        Calendar calendar=Calendar.getInstance();
-        calendar.setTime(fecha);
-        calendar.add(Calendar.DAY_OF_YEAR,1);
-        return calendar.getTime();
-    }
-
-    public boolean validarCancelacion(Date fecha,Ruta recorrido){
-        String pattern = "yyyy-MM-dd";
-        SimpleDateFormat formatearFecha = new SimpleDateFormat(pattern);
-        Date fechaActual= new Date();
-        Date fechaTraida=sumarUnDia(fecha);
-        boolean cancel=false;
-
-        if(fechaActual.compareTo(fechaTraida)==0){
-            System.out.println("No se puede cancelar un vuelo con menos de 24hs de anticipacion");
-
-        }else if(fechaActual.compareTo(fechaTraida)<0){
-            cancel=true;
-        }
-        return cancel;
-    }
 
     public String mostrarLosVuelosUsu(String dni){
         ArrayList<Vuelo> usuVuelos=traerVuelosUsu(dni);
