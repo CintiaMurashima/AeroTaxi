@@ -1,6 +1,5 @@
-package com.company;
+package vuelos;
 
-import java.io.File;
 import java.util.ArrayList;
 
 public class Vuelos {
@@ -13,11 +12,11 @@ public class Vuelos {
     public Vuelos() {
     }
 
-    public ArrayList<com.company.Vuelo> getVuelos() {
+    public ArrayList<Vuelo> getVuelos() {
         return vuelos;
     }
 
-    public void setVuelos(ArrayList<com.company.Vuelo> vuelos) {
+    public void setVuelos(ArrayList<Vuelo> vuelos) {
         this.vuelos = vuelos;
     }
 }

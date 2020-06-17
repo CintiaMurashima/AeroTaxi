@@ -1,18 +1,20 @@
 package com.company;
 
+import javafx.scene.control.ProgressIndicator;
+
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
-/*
 
-    public void clearScreen(){
-        for(int i=0; i < 80* 300;i++){
+
+    // la declaro startic para llamarla desde aerotaxi
+    public static void clearScreen(){
+        for(int i=0; i < 80 * 300;i++){
             System.out.println("\b");
         }
     }
-    */
 
 
     public void mostrarMenuPrincial(AeroTaxi aeroTaxi) {
@@ -22,6 +24,7 @@ public class Menu {
 
 
         while(!salir) {
+
             System.out.println("1. Iniciar sesion");
             System.out.println("2. Registrarse");
             System.out.println("3. Salir");
@@ -34,13 +37,14 @@ public class Menu {
                 switch (opcion) {
                     case 1:
 
+                        clearScreen();
                         System.out.println("Has seleccionado Iniciar sesion");
                         // si esta validado
                         menuCreacionVuelo(aeroTaxi);
 
                         break;
                     case 2:
-
+                        clearScreen();
                         System.out.println("Has seleccionado Registrarse");
 
                         break;
@@ -75,12 +79,12 @@ public class Menu {
 
                 switch (opcion) {
                     case 1:
-
+                        clearScreen();
                         System.out.println("Reservar Vuelo");
                         aeroTaxi.crearVuelo();
                         break;
                     case 2:
-
+                        clearScreen();
                         System.out.println("Cancelar vuelo");
                         break;
                     case 3:

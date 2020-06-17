@@ -1,5 +1,8 @@
-package com.company;
+package com.company.archivos;
 
+import rutas.Ciudades;
+import rutas.Ruta;
+import rutas.Rutas;
 import com.company.aviones.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -79,7 +82,6 @@ public class Archivos {
 
         Ciudades ciu = new Ciudades(ciudades);
         mapper.writeValue(archivoCiudades,ciu);
-
 
 
 

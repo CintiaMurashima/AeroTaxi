@@ -1,7 +1,13 @@
 package com.company;
 
+import com.company.archivos.Archivos;
 import com.company.aviones.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import rutas.Ciudades;
+import rutas.Ruta;
+import rutas.Rutas;
+import vuelos.Vuelo;
+import vuelos.Vuelos;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,7 +34,8 @@ public class AeroTaxi {
             leerArchivos();
         } catch (IOException e) {
             ///si no se puede ver el archivo , le pregunto al usuario si los quiere cargar por defecto
-            System.out.println("No se pudo cargar la información de los archivos");
+            Menu.clearScreen();
+            System.out.println("No se pudo cargar la información de los com.company.archivos");
             System.out.println("¿Desea volver a generarla?");
             System.out.println("1-Si");
             System.out.println("2-No");
@@ -41,10 +48,10 @@ public class AeroTaxi {
             } while (!(seleccion >=1 && seleccion <= 2));
             if(seleccion == 1){
                 try{
-                    a.guardarArchivos();// genero los archivos nuevamente
+                    a.guardarArchivos();// genero los com.company.archivos nuevamente
                     leerArchivos();
                 }catch(IOException e1){
-                    System.out.println("No se pudieron generar los archivos");
+                    System.out.println("No se pudieron generar los com.company.archivos");
                 }
             }
         }
@@ -52,12 +59,13 @@ public class AeroTaxi {
 
     public void leerArchivos() throws IOException{
 
+
         ObjectMapper mapper = new ObjectMapper();
         /// Files.readString convierte archivo en String /// Paths.get es la ruta
         String jsonRutas = Files.readString(Paths.get("rutas.json"));
-        //
+        //convierte el string json en objeto
         Rutas listaRutas = mapper.readValue(jsonRutas, Rutas.class);
-        ///
+
         rutas = listaRutas.getRutas();
 
         String jsonAviones = Files.readString(Paths.get("aviones.json"));
@@ -76,8 +84,9 @@ public class AeroTaxi {
     public Date ingresarFecha(){
 
         Scanner teclado = new Scanner(System.in);
-        String pattern = "yyyy-MM-dd";
-        System.out.println("Introduzca la fecha con formato yyyy-MM-dd");
+        String pattern = "dd/MM/yyyy";
+        Menu.clearScreen();
+        System.out.println("Introduzca la fecha con formato dd/MM/yyyy");
 
         SimpleDateFormat formatearFecha = new SimpleDateFormat(pattern);
         Date fechaActual= new Date();
@@ -94,7 +103,7 @@ public class AeroTaxi {
                 fecha = formatearFecha.parse(pattern); // parse convierte string en date
             } catch (Exception e) {
                 System.out.println("Fecha o formato invalido");
-                System.out.println("Introduzca la fecha con formato yyyy-MM-dd");
+                System.out.println("Introduzca la fecha con formato dd/MM/yyyy");
             }
         } while (fecha == null || (fecha.before(fechaActual)));
 
@@ -106,15 +115,16 @@ public class AeroTaxi {
         String ciudad1="";
         String ciudad2="";
 
+        Menu.clearScreen();
         System.out.println("Introduzca el origen");
-        ciudad1= seleccionarCiudad();
+        ciudad1= seleccionarCiudad(null);
 
         do{
             if (ciudad1.equals(ciudad2)){
                 System.out.println("No puede repetir ciudades");
             }
             System.out.println("Introduzca el destino");
-            ciudad2= seleccionarCiudad();
+            ciudad2= seleccionarCiudad(ciudad1);
         } while (ciudad1.equals(ciudad2));
 
         /// Logica para encontrar la ruta
@@ -130,25 +140,37 @@ public class AeroTaxi {
         return ruta;
     }
 
-    public String seleccionarCiudad() {
+    public String seleccionarCiudad(String filtroCiudad) {
 
         Scanner teclado = new Scanner(System.in);
         int seleccion=0;
         String ciudad= "";
-        for (int i = 0; i < ciudades.size(); i++){
+        ArrayList<String> ciudadesFiltradas= new ArrayList<>();
+        if(filtroCiudad == null){
+            ciudadesFiltradas=ciudades;
+        }else{
+
+            for (int i=0; i < ciudades.size(); i++) {
+                if ((ciudades.get(i) != (filtroCiudad))) {
+                    ciudadesFiltradas.add(ciudades.get(i));
+                }
+            }
+        }
+
+        for (int i = 0; i < ciudadesFiltradas.size(); i++){
             //le sumo para mostrar a partir de 1 al usuario
-            System.out.println(i+1+"-" + ciudades.get(i));
+            System.out.println(i+1+"-" + ciudadesFiltradas.get(i));
         }
         do {
             try {
                 seleccion = teclado.nextInt();
-                ciudad=ciudades.get(seleccion-1);
+                ciudad=ciudadesFiltradas.get(seleccion-1);
 
             } catch (InputMismatchException ime){
                 System.out.println("El numero ingresado es incorrecto, vuelva a intentar");
                 teclado.next();
             }
-        } while (seleccion > ciudades.size());
+        } while (seleccion > ciudadesFiltradas.size());
 
 
         return ciudad;
@@ -158,7 +180,7 @@ public class AeroTaxi {
     public int acompanantes(){
         Scanner teclado = new Scanner(System.in);
         int acomp=0;
-
+        Menu.clearScreen();
         System.out.println("Introduzca cantidad de acompañantes");
         do {
             try {
@@ -200,7 +222,7 @@ public class AeroTaxi {
         return avionesDesocupados;
     }
 
-    public Avion seleccionarAvion(ArrayList<Avion> avionesDisponibles,int acompanantes){
+    public Avion    seleccionarAvion(ArrayList<Avion> avionesDisponibles,int acompanantes){
         ///guardo los aviones disponibles c/capacidad de pasajeros
         ArrayList<Avion>avionesValidos=new ArrayList<>();
         Scanner teclado = new Scanner(System.in);
@@ -217,6 +239,7 @@ public class AeroTaxi {
            System.out.println("No tenemos aviones disponibles con esa capacidad de pasajeros");
 
        }else {
+           Menu.clearScreen();
            System.out.println("Seleccione un avion");
            for (int i = 0; i < avionesValidos.size(); i++) {
                System.out.println(i + 1 + avionesValidos.get(i).getNombre());//
@@ -254,6 +277,7 @@ public class AeroTaxi {
             avionSeleccionado= seleccionarAvion(avionesDisponibles,acompanantes);
             if(avionSeleccionado!=null){
                 vuelo=new Vuelo(fecha,ruta,acompanantes,avionSeleccionado);
+                Menu.clearScreen();
                 System.out.println("La tarifa del vuelo es:" + vuelo.getCosto());
                 System.out.println("1- Si desea confirmar");
                 System.out.println("2- Si desea cancelar");
@@ -270,11 +294,16 @@ public class AeroTaxi {
                 if(seleccion == 1){
                     try{
                         vuelos.add(vuelo);
-                        //guarda en archivos
+                        //guarda en com.company.archivos
                         guardarVuelos();
+                        Menu.clearScreen();
+                        System.out.println("El vuelo se guardo con exito");
                     } catch(IOException e) {
+                        Menu.clearScreen();
                         System.out.println("No se pudo guardar el vuelo");
                     }
+                }else {
+                    System.out.println("El vuelo se cancelo con exito");
                 }
             }
 

@@ -1,6 +1,4 @@
-package com.company;
-
-import com.company.aviones.Avion;
+package rutas;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.company;
+package rutas;
 
 import com.company.aviones.Avion;
 

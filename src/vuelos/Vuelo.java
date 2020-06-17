@@ -1,5 +1,6 @@
-package com.company;
+package vuelos;
 
+import rutas.Ruta;
 import com.company.aviones.Avion;
 
 import java.util.Date;

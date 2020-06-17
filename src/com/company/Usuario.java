@@ -4,7 +4,7 @@ public class Usuario {
 
     private String nombre;
     private String apellido;
-    private String dni;
+    private final String dni;
     private int edad;
 
     public Usuario(String nombre, String apellido, String dni, int edad) {
@@ -13,6 +13,8 @@ public class Usuario {
         this.dni = dni;
         this.edad = edad;
     }
+
+
 
 
 }

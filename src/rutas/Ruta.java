@@ -1,4 +1,4 @@
-package com.company;
+package rutas;
 
 public class Ruta {
 
