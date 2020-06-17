@@ -85,6 +85,7 @@ public class Menu {
                     case 2:
                         clearScreen();
                         System.out.println("Cancelar vuelo");
+                        aeroTaxi.cancelar_vuelo();
                         break;
                     case 3:
                         salir = true;

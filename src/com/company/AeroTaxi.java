@@ -24,8 +24,6 @@ public class AeroTaxi {
     private ArrayList<String> ciudades = new ArrayList<>();
     private ArrayList<Vuelo> vuelos = new ArrayList<>();
 
-
-
     public AeroTaxi() {
         Scanner teclado = new Scanner(System.in);
         int seleccion=0;
@@ -271,7 +269,7 @@ public class AeroTaxi {
         Scanner teclado = new Scanner(System.in);
         int seleccion=0;
         Usuario usu=usuarios.seleccionarUsuario(this.usuarios);
-        Date fecha=ingresarFecha();
+        Date fecha= ingresarFecha();
         Ruta ruta=obtenerRuta();
         int acompanantes= acompanantes();
         ArrayList<Avion> avionesDisponibles= dispoAvion(fecha);
@@ -318,13 +316,64 @@ public class AeroTaxi {
         }
     }
 
-    public String mostrarUsuVuelo(Usuario usu ,Vuelos todos){
-        String cadena="";
-        cadena = usu.toString();
-        cadena += todos.mostrarLosVuelosUsu(usu.getDni());
-        return cadena;
+    public Date sumarUnDia(Date fecha){
+        Calendar calendar=Calendar.getInstance();
+        calendar.setTime(fecha);
+        calendar.add(Calendar.DAY_OF_YEAR,1);
+        return calendar.getTime();
     }
 
+    public boolean validarCancelacion(Date fecha){
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat formatearFecha = new SimpleDateFormat(pattern);
+        Date fechaActual= new Date();
+        Date fechaTraida=sumarUnDia(fecha);
+        boolean cancel=false;
+
+        if(fechaActual.compareTo(fechaTraida)==0){
+            System.out.println("No se puede cancelar un vuelo con menos de 24hs de anticipacion");
+
+        }else if(fechaActual.compareTo(fechaTraida)<0){
+            cancel=true;
+        }
+        return cancel;
+    }
+
+    public void cancelar_vuelo() {
+        Scanner teclado = new Scanner(System.in);
+        int seleccion=0;
+        int j = 0;
+        if(vuelos.isEmpty()) {
+            System.out.println("El Usuario no esta registrado en ningún vuelo\n"); //Excepcion en caso de que el usuario no tenga vuelos
+        }else {
+            System.out.println("Vuelos en los que el Usuario se encuentra registrado: \n"); //Printeo
+            while (j < vuelos.size()) //Loop para printear los vuelos
+            {
+                System.out.println(j + ") Fecha: " + vuelos.get(j).getFechaVuelo() + ", Tipo de Avion: " + vuelos.get(j).getAvion() + ", Costo del Vuelo: " + vuelos.get(j).getCosto() + ", Recorrido: " + vuelos.get(j).getRecorrido() + ", Acompañantes: " + vuelos.get(j).getAcompanante() + "\n");
+                j++;
+            }
+            System.out.println("Ingrese el Numero de vuelo que desea cancelar. Si no desea cancelar ningun vuelo, seleccione 0\n");
+            do {
+                try {
+                    seleccion = teclado.nextInt(); ///Si el proximo no es un int o es menor a 0, entonces arroja un error
+                } catch (InputMismatchException ime){
+                    System.out.println("Solo puedes insertar números de la lista o 0");
+                    teclado.next();
+                }
+            } while (!(-1 < seleccion && seleccion < j));
+            if(seleccion != 0){ ///Si la seleccion es correcta y no es 0 (en cuyo caso se sale de la funcion), remueve el vuelo y guarda los cambios
+                if (validarCancelacion(vuelos.get(seleccion).getFechaVuelo())) {
+                        vuelos.remove(seleccion);}
+                }
+            try{
+                //guarda en archivos
+                guardarVuelos();
+                System.out.println("Vuelo cancelado exitosamente");
+            } catch(IOException e) {
+                System.out.println("No se pudo guardar la cancelacion");
+            }
+        }
+    }
 
     public void guardarVuelos() throws IOException {
         File archivoVuelos = new File("vuelos.json");
@@ -333,5 +382,11 @@ public class AeroTaxi {
         mapper.writeValue(archivoVuelos,listaVuelos);
     }
 
+        public String mostrarUsuVuelo(Usuario usu ,Vuelos todos){
+        String cadena="";
+        cadena = usu.toString();
+        cadena += todos.mostrarLosVuelosUsu(usu.getDni());
+        return cadena;
+    }
 
 }

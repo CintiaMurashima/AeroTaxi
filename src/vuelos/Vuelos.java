@@ -86,7 +86,7 @@ public class Vuelos {
         }
         return cancel;
     }
-
+    
     public String mostrarLosVuelosUsu(String dni){
         ArrayList<Vuelo> usuVuelos=traerVuelosUsu(dni);
         String vuelos="";
