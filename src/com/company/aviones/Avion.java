@@ -119,4 +119,18 @@ public abstract class Avion {
     public int hashCode() {
         return Objects.hash(nombre);
     }
+
+    @Override
+    public String toString() {
+        return "Avion{" +
+                "nombre='" + nombre + '\'' +
+                ", capacidadCombustible=" + capacidadCombustible +
+                ", costoXkm=" + costoXkm +
+                ", capacidadMaxPax=" + capacidadMaxPax +
+                ", velocidadMax=" + velocidadMax +
+                ", tipoPropulsion=" + tipoPropulsion +
+                ", catering=" + catering +
+                ", tarifaDelTipo=" + tarifaDelTipo +
+                '}';
+    }
 }

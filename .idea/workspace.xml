@@ -2,21 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86116314-3ed9-4473-9c63-a2a47978addd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Usuarios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/AeroTaxi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/AeroTaxi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Archivos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Ciudades.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Ruta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Rutas.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Vuelo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Vuelos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/aviones/Avion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/aviones/Avion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/AeroTaxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/AeroTaxi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Archivos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/archivos/Archivos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Ciudades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rutas/Ciudades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Ruta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rutas/Ruta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Rutas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rutas/Rutas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Vuelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vuelos/Vuelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Vuelos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vuelos/Vuelos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/archivos/Archivos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/archivos/Archivos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/aviones/Avion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Avion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vuelos/Vuelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vuelos/Vuelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vuelos/Vuelos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vuelos/Vuelos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vuelos.json" beforeDir="false" afterPath="$PROJECT_DIR$/vuelos.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,15 +48,21 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -93,10 +104,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1591561032945" />
-    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser" timestamp="1591583602157">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="476" y="52" key="#com.intellij.ide.util.MemberChooser" timestamp="1592241949031">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1591583602157" />
+    <state x="490" y="230" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1592357943662">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="490" y="230" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1592357943662" />
     <state x="438" y="226" width="404" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1592356501271">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -117,22 +132,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="348" y="82" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1591560431702" />
-    <state width="1281" height="129" key="GridCell.Tab.0.bottom" timestamp="1592356560118">
+    <state width="1281" height="129" key="GridCell.Tab.0.bottom" timestamp="1592359685474">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="129" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592356560118" />
-    <state width="1281" height="129" key="GridCell.Tab.0.center" timestamp="1592356560118">
+    <state width="1281" height="129" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592359685474" />
+    <state width="1281" height="129" key="GridCell.Tab.0.center" timestamp="1592359685474">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="129" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592356560118" />
-    <state width="1281" height="129" key="GridCell.Tab.0.left" timestamp="1592356560118">
+    <state width="1281" height="129" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592359685474" />
+    <state width="1281" height="129" key="GridCell.Tab.0.left" timestamp="1592359685473">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="129" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592356560118" />
-    <state width="1281" height="129" key="GridCell.Tab.0.right" timestamp="1592356560118">
+    <state width="1281" height="129" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592359685473" />
+    <state width="1281" height="129" key="GridCell.Tab.0.right" timestamp="1592359685474">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="129" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592356560118" />
+    <state width="1281" height="129" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592359685474" />
     <state width="1281" height="213" key="GridCell.Tab.1.bottom" timestamp="1591823888135">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -149,26 +164,41 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1281" height="213" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1591823888132" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1591576085078">
+    <state x="142" y="0" key="SettingsEditor" timestamp="1592358614602">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1591576085078" />
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1592358614602" />
+    <state x="152" y="0" key="SettingsEditor/0.0.1366.728/1366.0.1067.560@0.0.1366.728" timestamp="1592235185846" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1592237823008">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728/1366.0.1067.560@0.0.1366.728" timestamp="1592237823008" />
+    <state x="376" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592080628266">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="376" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728/1366.0.1067.560@0.0.1366.728" timestamp="1592080628266" />
+    <state x="0" y="0" width="609" height="680" key="find.popup" timestamp="1592359162071">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="0" y="0" width="609" height="680" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1592359162071" />
     <state x="91" y="0" key="new project wizard" timestamp="1591554863129">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="91" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1591554863129" />
-    <state x="383" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1591576800492">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="409" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1592237560240">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="383" y="0" key="refactoring.ChangeSignatureDialog/0.0.1280.680@0.0.1280.680" timestamp="1591576800492" />
+    <state x="409" y="0" key="refactoring.ChangeSignatureDialog/0.0.1366.728/1366.0.1067.560@0.0.1366.728" timestamp="1592237560240" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1591503682094">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1591503682094" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1591672987615">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="323" y="1" width="718" height="726" key="search.everywhere.popup" timestamp="1592237825344">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1591672987615" />
+    <state x="323" y="1" width="718" height="726" key="search.everywhere.popup/0.0.1366.728/1366.0.1067.560@0.0.1366.728" timestamp="1592237825344" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AeroTaxi$Main.ic" NAME="Main Coverage Results" MODIFIED="1592143742404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

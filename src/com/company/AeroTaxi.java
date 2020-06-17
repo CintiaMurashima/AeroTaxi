@@ -19,7 +19,7 @@ import java.util.*;
 public class AeroTaxi {
 
     private ArrayList<Avion> aviones= new ArrayList<>();
-    private ArrayList<Usuario> usuarios=new ArrayList<>();
+    private Usuarios usuarios=new Usuarios();
     private ArrayList<Ruta> rutas = new ArrayList<>();
     private ArrayList<String> ciudades = new ArrayList<>();
     private ArrayList<Vuelo> vuelos = new ArrayList<>();
@@ -79,6 +79,10 @@ public class AeroTaxi {
         String jsonVuelos = Files.readString(Paths.get("vuelos.json"));
         Vuelos listaVuelos = mapper.readValue(jsonVuelos, Vuelos.class);
         vuelos = listaVuelos.getVuelos();
+        /// se crea para leer el archivo
+        String jsonUsuarios = Files.readString(Paths.get("usuarios.json"));
+        Usuarios listaUsuarios = mapper.readValue(jsonUsuarios, Usuarios.class);
+        usuarios = listaUsuarios;
     }
 
     public Date ingresarFecha(){
@@ -266,18 +270,20 @@ public class AeroTaxi {
     public void crearVuelo() {
         Scanner teclado = new Scanner(System.in);
         int seleccion=0;
+        Usuario usu=usuarios.seleccionarUsuario(this.usuarios);
         Date fecha=ingresarFecha();
         Ruta ruta=obtenerRuta();
         int acompanantes= acompanantes();
         ArrayList<Avion> avionesDisponibles= dispoAvion(fecha);
         Avion avionSeleccionado;
         Vuelo vuelo;
-
         if(!avionesDisponibles.isEmpty()){
             avionSeleccionado= seleccionarAvion(avionesDisponibles,acompanantes);
             if(avionSeleccionado!=null){
-                vuelo=new Vuelo(fecha,ruta,acompanantes,avionSeleccionado);
+
                 Menu.clearScreen();
+                vuelo=new Vuelo(fecha,ruta,acompanantes,avionSeleccionado,usu.getDni());
+
                 System.out.println("La tarifa del vuelo es:" + vuelo.getCosto());
                 System.out.println("1- Si desea confirmar");
                 System.out.println("2- Si desea cancelar");
@@ -311,6 +317,15 @@ public class AeroTaxi {
             System.out.println("No hay aviones disponibles para la fecha");
         }
     }
+
+    public String mostrarUsuVuelo(Usuario usu ,Vuelos todos){
+        String cadena="";
+        cadena = usu.toString();
+        cadena += todos.mostrarLosVuelosUsu(usu.getDni());
+        return cadena;
+    }
+
+
     public void guardarVuelos() throws IOException {
         File archivoVuelos = new File("vuelos.json");
         ObjectMapper mapper = new ObjectMapper();

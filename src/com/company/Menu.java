@@ -41,7 +41,6 @@ public class Menu {
                         System.out.println("Has seleccionado Iniciar sesion");
                         // si esta validado
                         menuCreacionVuelo(aeroTaxi);
-
                         break;
                     case 2:
                         clearScreen();
