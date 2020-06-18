@@ -197,8 +197,10 @@ public class AeroTaxi {
     }
 
     public ArrayList<Avion>dispoAvion(Date fecha){
-        ArrayList<Avion>avionesOcupados= new ArrayList<>(); // Guardo los aviones que no estan disponibles en la fecha indicada
-        ArrayList<Avion>avionesDesocupados= new ArrayList<>(); // ocupacion en relacion a la fecha
+        // Guardo los aviones que no estan disponibles en la fecha indicada
+        ArrayList<Avion>avionesOcupados= new ArrayList<>();
+        // ocupacion en relacion a la fecha
+        ArrayList<Avion>avionesDesocupados= new ArrayList<>();
         boolean encontrado;
         int j;
 
@@ -344,24 +346,33 @@ public class AeroTaxi {
         int seleccion=0;
         int j = 0;
         if(vuelos.isEmpty()) {
-            System.out.println("El Usuario no esta registrado en ningún vuelo\n"); //Excepcion en caso de que el usuario no tenga vuelos
+            //Excepcion en caso de que el usuario no tenga vuelos
+            System.out.println("El Usuario no cuenta con vuelos reservados\n");
         }else {
-            System.out.println("Vuelos en los que el Usuario se encuentra registrado: \n"); //Printeo
-            while (j < vuelos.size()) //Loop para printear los vuelos
+            System.out.println("Vuelos en los que el Usuario se encuentra registrado: \n");
+            //Loop para printear los vuelos
+            while (j < vuelos.size())
             {
-                System.out.println(j + ") Fecha: " + vuelos.get(j).getFechaVuelo() + ", Tipo de Avion: " + vuelos.get(j).getAvion() + ", Costo del Vuelo: " + vuelos.get(j).getCosto() + ", Recorrido: " + vuelos.get(j).getRecorrido() + ", Acompañantes: " + vuelos.get(j).getAcompanante() + "\n");
+                System.out.println(j + ") Fecha: " + vuelos.get(j).getFechaVuelo()
+                        + ", Tipo de Avion: " + vuelos.get(j).getAvion()
+                        + ", Costo del Vuelo: " + vuelos.get(j).getCosto()
+                        + ", Recorrido: " + vuelos.get(j).getRecorrido()
+                        + ", Acompañantes: " + vuelos.get(j).getAcompanante() + "\n");
                 j++;
             }
-            System.out.println("Ingrese el Numero de vuelo que desea cancelar. Si no desea cancelar ningun vuelo, seleccione 0\n");
+            System.out.println("Ingrese el Numero de vuelo que desea cancelar. " +
+                    "Si no desea cancelar ningun vuelo, seleccione 0\n");
             do {
                 try {
-                    seleccion = teclado.nextInt(); ///Si el proximo no es un int o es menor a 0, entonces arroja un error
+                    ///Si el proximo no es un int o es menor a 0, entonces arroja un error
+                    seleccion = teclado.nextInt();
                 } catch (InputMismatchException ime){
                     System.out.println("Solo puedes insertar números de la lista o 0");
                     teclado.next();
                 }
             } while (!(-1 < seleccion && seleccion < j));
-            if(seleccion != 0){ ///Si la seleccion es correcta y no es 0 (en cuyo caso se sale de la funcion), remueve el vuelo y guarda los cambios
+            if(seleccion != 0){
+                ///Si la seleccion es correcta y no es 0 en cuyo caso se sale de la funcion), remueve el vuelo y guarda los cambios
                 if (validarCancelacion(vuelos.get(seleccion).getFechaVuelo())) {
                         vuelos.remove(seleccion);}
                 }
@@ -388,5 +399,7 @@ public class AeroTaxi {
         cadena += todos.mostrarLosVuelosUsu(usu.getDni());
         return cadena;
     }
+
+
 
 }

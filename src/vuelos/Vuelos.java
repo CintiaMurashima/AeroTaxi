@@ -10,7 +10,7 @@ import  java.util.Calendar;
 public class Vuelos {
 
     private ArrayList<Vuelo> vuelos;
-    private ArrayList<Usuario> usuarios;
+
 
     public Vuelos(ArrayList<Vuelo> vuelos) {
         this.vuelos = vuelos;
@@ -72,7 +72,7 @@ public class Vuelos {
     }
 
     public boolean validarCancelacion(Date fecha, Ruta recorrido){
-        String pattern = "yyyy-MM-dd";
+        String pattern = "dd/MM/dddd";
         SimpleDateFormat formatearFecha = new SimpleDateFormat(pattern);
         Date fechaActual= new Date();
         Date fechaTraida=sumarUnDia(fecha);

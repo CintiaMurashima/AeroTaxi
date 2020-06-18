@@ -7,6 +7,8 @@ import rutas.Ruta;
 import rutas.Rutas;
 import com.company.aviones.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import vuelos.Vuelo;
+import vuelos.Vuelos;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +20,7 @@ public class Archivos {
     private ArrayList<Avion> aviones= new ArrayList<>();
     private ArrayList<String> ciudades = new ArrayList<>();
     private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private ArrayList<Vuelo> vuelos= new ArrayList<>();
 
 
     public Archivos() {
@@ -29,8 +32,11 @@ public class Archivos {
         File archivoAviones =new File("aviones.json");
         File archivoCiudades =new File("ciudades.json");
         File archivoUsuarios =new File("usuarios.json");
+        File archivoVuelos =new File("vuelos.json");
 
         ObjectMapper mapper=new ObjectMapper();
+
+
 
         //creacion de rutas
         Ruta ruta1 = new Ruta("Buenos Aires", "Cordoba", 695);
@@ -103,6 +109,10 @@ public class Archivos {
         usuarios.add(usuario6);
         Usuarios usu= new Usuarios(usuarios);
         mapper.writeValue(archivoUsuarios,usu);
+
+
+        Vuelos vu= new Vuelos(vuelos);
+        mapper.writeValue(archivoVuelos,vu);
 
 
     }

@@ -121,15 +121,10 @@ public abstract class Avion {
 
     @Override
     public String toString() {
-        return "Avion{" +
-                "nombre='" + nombre + '\'' +
-                ", capacidadCombustible=" + capacidadCombustible +
-                ", costoXkm=" + costoXkm +
-                ", capacidadMaxPax=" + capacidadMaxPax +
-                ", velocidadMax=" + velocidadMax +
-                ", tipoPropulsion=" + tipoPropulsion +
-                ", catering=" + catering +
-                ", tarifaDelTipo=" + tarifaDelTipo +
-                '}';
+        return "Avion" +
+                "Nombre='" + nombre + '\'' +
+                "apacidadMaxPax= " + capacidadMaxPax +
+                "Catering= " + catering +
+                "TarifaDelTipo= " + tarifaDelTipo;
     }
 }
