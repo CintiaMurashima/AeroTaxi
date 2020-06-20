@@ -24,6 +24,7 @@ public class AeroTaxi {
     private ArrayList<String> ciudades = new ArrayList<>();
     private ArrayList<Vuelo> vuelos = new ArrayList<>();
 
+
     public AeroTaxi() {
         Scanner teclado = new Scanner(System.in);
         int seleccion=0;
@@ -112,6 +113,7 @@ public class AeroTaxi {
         return fecha;
     }
     public Ruta obtenerRuta() {
+
         Ruta ruta = null;
         int i=0;
         String ciudad1="";
@@ -317,6 +319,7 @@ public class AeroTaxi {
             System.out.println("No hay aviones disponibles para la fecha");
         }
     }
+
 
     public Date sumarUnDia(Date fecha){
         Calendar calendar=Calendar.getInstance();
