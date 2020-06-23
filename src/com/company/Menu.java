@@ -1,12 +1,14 @@
 package com.company;
 
-import javafx.scene.control.ProgressIndicator;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Menu {
+public class Menu{
 
 
     // la declaro startic para llamarla desde aerotaxi
@@ -25,7 +27,8 @@ public class Menu {
 
 
         while (!salir) {
-
+            clearScreen();
+            System.out.println("\n----- Bienvenido a AeroTaxi -----\n");
             System.out.println("1. Reservar vuelo");
             System.out.println("2. Cancelar vuelo");
             System.out.println("3. Listar vuelos");
@@ -40,35 +43,35 @@ public class Menu {
                         clearScreen();
                         System.out.println("Reservar Vuelo");
                         aeroTaxi.crearVuelo();
+
                         break;
                     case 2:
                         clearScreen();
                         System.out.println("Cancelar vuelo");
                         aeroTaxi.cancelar_vuelo();
+
                         break;
 
                     case 3:
                         clearScreen();
                         System.out.println("Listar vuelos");
-
+                        aeroTaxi.seleccionarMostrarVuelos();
 
                         break;
 
                     case 4:
                         clearScreen();
                         System.out.println("Listar usuarios");
-
-
+                        aeroTaxi.mostrarUsuarios_con_costo();
 
                         break;
                     case 5:
-                        salir = true;
+                        salir=true;
                         break;
                     default:
-
                         System.out.println("Solo opcion entre  1 y 5");
                 }
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException | InterruptedException e) {
 
                 System.out.println("Debes insertar un número");
                 opcion = teclado.nextInt();

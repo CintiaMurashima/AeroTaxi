@@ -4,6 +4,7 @@ import rutas.Ruta;
 import com.company.aviones.Avion;
 
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Vuelo {
@@ -90,14 +91,16 @@ public class Vuelo {
 
     @Override
     public String toString() {
-        return "Vuelo{" +
-                "fechaVuelo=" + fechaVuelo +
-                ", recorrido=" + recorrido +
-                ", acompanante=" + acompanante +
-                ", avion=" + avion +
-                ", costo=" + costo +
-                ", dni='" + dni + '\'' +
-                '}';
+        SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd");
+
+        String fechaFormateada = formatter.format(getFechaVuelo());
+        return "Vuelo: " + '\n' +
+                "Fecha: " + fechaFormateada +  '\n' +
+                "Recorrido: " + recorrido  +'\n' +
+                "Acompa"+'\u00f1'+"antes: " + acompanante +'\n' +
+                "Avion: " + avion +'\n' +
+                "Costo: " + costo +'\n' +
+                "DNI del usuario: " + dni ;
     }
 
     

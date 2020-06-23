@@ -105,6 +105,16 @@ public abstract class Avion {
         this.catering = catering;
     }
 
+    public String catering(){
+        String validacion="";
+
+        if(catering){
+            validacion="Si";
+        }else{
+            validacion="No";
+        }
+        return validacion;
+    }
     /// compara los vuelos para mostrar los desocupados con el criterio de nombre
     @Override
     public boolean equals(Object o) {
@@ -121,10 +131,9 @@ public abstract class Avion {
 
     @Override
     public String toString() {
-        return "Avion" +
-                "Nombre='" + nombre + '\'' +
-                "apacidadMaxPax= " + capacidadMaxPax +
-                "Catering= " + catering +
-                "TarifaDelTipo= " + tarifaDelTipo;
+        return " Nombre: '" + nombre +'\'' + " , "+
+                " capacidad maxima de pasajeros: " + capacidadMaxPax + " , "+
+                " Catering: " + catering() + " , "+
+                " Tarifa: " + tarifaDelTipo;
     }
 }

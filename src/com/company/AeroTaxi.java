@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -102,7 +103,7 @@ public class AeroTaxi {
                  System.out.println(fechaActual);
                  System.out.println("Debe ingresar una fecha superior a la actual");
                 }
-                pattern= teclado.nextLine();
+                pattern= teclado.nextLine(); /// Limpia el buffer
                 fecha = formatearFecha.parse(pattern); // parse convierte string en date
             } catch (Exception e) {
                 System.out.println("Fecha o formato invalido");
@@ -161,23 +162,60 @@ public class AeroTaxi {
             }
         }
 
-        for (int i = 0; i < ciudadesFiltradas.size(); i++){
+
+        do {
+            for (int i = 0; i < ciudadesFiltradas.size(); i++){
             //le sumo para mostrar a partir de 1 al usuario
             System.out.println(i+1+"-" + ciudadesFiltradas.get(i));
         }
-        do {
+
             try {
                 seleccion = teclado.nextInt();
-                ciudad=ciudadesFiltradas.get(seleccion-1);
 
             } catch (InputMismatchException ime){
                 System.out.println("El numero ingresado es incorrecto, vuelva a intentar");
                 teclado.next();
             }
-        } while (seleccion > ciudadesFiltradas.size());
+        } while (seleccion > ciudadesFiltradas.size() || seleccion < 1);
+
+            ciudad=ciudadesFiltradas.get(seleccion-1);
 
 
         return ciudad;
+    }
+
+    public void listarVuelosFecha(){
+        Scanner teclado = new Scanner(System.in);
+        String pattern = "dd/MM/yyyy";
+        int j=0;
+        int i=1;
+        Menu.clearScreen();
+        System.out.println("Introduzca la fecha con formato dd/MM/yyyy");
+
+        SimpleDateFormat formatearFecha = new SimpleDateFormat(pattern);
+        Date fechaActual= new Date();
+        Date fecha = null; //creo el tipo fecha
+
+        do {
+            try {
+                pattern= teclado.nextLine();///limpia teclado
+                fecha = formatearFecha.parse(pattern); // parse convierte string en date
+            } catch (Exception e) {
+                System.out.println("Fecha o formato invalido");
+                System.out.println("Introduzca la fecha con formato dd/MM/yyyy");
+            }
+        } while (fecha == null);
+        while (j < vuelos.size()){
+            if(vuelos.get(j).getFechaVuelo().equals(fecha)) {
+               System.out.println(i +" "+ vuelos.get(j).toString()+'\n');
+               i++;
+            }
+            j++;
+        }
+        if(i==1){
+            System.out.println("No hay vuelos en esta fecha");
+        }
+        siguiente();
     }
 
     //luego valido los vuelos que hay con la cantidad de acompañantes que ingreso el usu
@@ -228,7 +266,7 @@ public class AeroTaxi {
         return avionesDesocupados;
     }
 
-    public Avion    seleccionarAvion(ArrayList<Avion> avionesDisponibles,int acompanantes){
+    public Avion seleccionarAvion(ArrayList<Avion> avionesDisponibles,int acompanantes) throws InterruptedException {
         ///guardo los aviones disponibles c/capacidad de pasajeros
         ArrayList<Avion>avionesValidos=new ArrayList<>();
         Scanner teclado = new Scanner(System.in);
@@ -243,24 +281,25 @@ public class AeroTaxi {
        }
        if(avionesValidos.isEmpty()){
            System.out.println("No tenemos aviones disponibles con esa capacidad de pasajeros");
+           Thread.sleep(3000) ;///pausa
 
        }else {
            Menu.clearScreen();
            System.out.println("Seleccione un avion");
            for (int i = 0; i < avionesValidos.size(); i++) {
-               System.out.println(i + 1 + avionesValidos.get(i).getNombre());//
+               System.out.println(i+1 + " "+ avionesValidos.get(i).getNombre());//
            }
            do {
                try {
-                   if(seleccion > avionesValidos.size()){
+                   seleccion = teclado.nextInt();
+                   if((seleccion <= 0) || seleccion > avionesValidos.size() ) {
                        System.out.println("El numero ingresado es incorrecto, vuelva a intentar");
                    }
-                   seleccion = teclado.nextInt();
                } catch (InputMismatchException ime){
                    System.out.println("Debera ingresar un numero");
                    teclado.next();
                }
-           } while (!(seleccion <= avionesValidos.size()) || seleccion > avionesValidos.size());
+           } while ((seleccion <= 0) || seleccion > avionesValidos.size());
 
            avionSeleccionado=avionesValidos.get(seleccion-1);
        }
@@ -269,10 +308,11 @@ public class AeroTaxi {
 
 
 // LLamo a las funciones anteriores y las uno con la validaciones correspondientes
-    public void crearVuelo() {
+    public void crearVuelo() throws InterruptedException {
         Scanner teclado = new Scanner(System.in);
         int seleccion=0;
-        Usuario usu=usuarios.seleccionarUsuario(this.usuarios);
+        Usuario usu=usuarios.seleccionarUsuario();
+        System.out.println(usu);
         Date fecha= ingresarFecha();
         Ruta ruta=obtenerRuta();
         int acompanantes= acompanantes();
@@ -293,6 +333,10 @@ public class AeroTaxi {
                 do {
                     try {
                         seleccion = teclado.nextInt();
+                        if(!(seleccion > 0 && seleccion < 3)){
+                          System.out.println("Solo puedes insertar números de las opciones dadas");
+                        }
+
                     } catch (InputMismatchException ime){
                         System.out.println("Solo puedes insertar números de las opciones dadas");
                         teclado.next();
@@ -306,12 +350,16 @@ public class AeroTaxi {
                         guardarVuelos();
                         Menu.clearScreen();
                         System.out.println("El vuelo se guardo con exito");
+                        siguiente();
+
                     } catch(IOException e) {
                         Menu.clearScreen();
                         System.out.println("No se pudo guardar el vuelo");
+                        siguiente();
                     }
                 }else {
                     System.out.println("El vuelo se cancelo con exito");
+                    siguiente();
                 }
             }
 
@@ -320,73 +368,183 @@ public class AeroTaxi {
         }
     }
 
+    public boolean validarCancelacion(Date fecha) {
+        Date fechaActual = new Date();
+        boolean cancel = false;
 
-    public Date sumarUnDia(Date fecha){
-        Calendar calendar=Calendar.getInstance();
-        calendar.setTime(fecha);
-        calendar.add(Calendar.DAY_OF_YEAR,1);
-        return calendar.getTime();
-    }
-
-    public boolean validarCancelacion(Date fecha){
-        String pattern = "yyyy-MM-dd";
-        SimpleDateFormat formatearFecha = new SimpleDateFormat(pattern);
-        Date fechaActual= new Date();
-        Date fechaTraida=sumarUnDia(fecha);
-        boolean cancel=false;
-
-        if(fechaActual.compareTo(fechaTraida)==0){
+        if (fechaActual.after(fecha) || fechaActual.equals(fecha)) {
             System.out.println("No se puede cancelar un vuelo con menos de 24hs de anticipacion");
-
-        }else if(fechaActual.compareTo(fechaTraida)<0){
-            cancel=true;
+        } else {
+            cancel = true;
         }
         return cancel;
+    }
+
+    public double calcular_costo(String DNI)
+    {
+        double total = 0;
+        int j = 0;
+        if(vuelos.isEmpty()) {
+            //Excepcion en caso de que el usuario no tenga vuelos
+        }else {
+            while (j < vuelos.size())
+            {
+                if(vuelos.get(j).getDni().equals(DNI)) {
+                    total = total + vuelos.get(j).getCosto();
+                }
+                j++;
+            }
+        }
+        return total;
+    }
+
+    public int get_mejor_avion (String DNI)
+    {
+        int avion = 0; /// 0 = No vuelos, 1 Es igual a Bronze, 2 es igual a Silver, 3 es igual a Gold
+        int j = 0;
+        if(vuelos.isEmpty()) {
+            //Excepcion en caso de que el usuario no tenga vuelos
+        }else {
+            while (j < vuelos.size())
+            {
+                if(vuelos.get(j).getDni().equals(DNI)) {
+                    if (vuelos.get(j).getAvion() instanceof Bronze) {
+                        if(avion < 1){
+                            avion = 1;
+                        }
+
+                    } else if (vuelos.get(j).getAvion() instanceof Silver) {
+                        if(avion < 2){
+                            avion = 2;
+                        }
+
+                    }else if (vuelos.get(j).getAvion() instanceof Gold) {
+                        if(avion < 3){
+                            avion = 3;
+                        }
+                    }
+                }
+                j++;
+            }
+        }
+        return avion;
+    }
+
+    public void mostrarUsuarios_con_costo(){
+        double costo = 0;
+        int tipo_avion = 0;
+        Scanner teclado=new Scanner(System.in);
+        int pos=0;
+        ArrayList <Usuario> temp = new ArrayList<>();
+        temp = usuarios.getUsuarios();
+        int i = 0;
+        if(vuelos.isEmpty()) {
+            System.out.println("No hay Usuarios para Mostrar\n");
+        }else {
+            usuarios.mostrarUsuarios();
+            try {
+                pos=teclado.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Solo puede ingresar numeros");
+            }
+            if(pos > 0 && pos<=temp.size()){
+                System.out.println(temp.get(pos-1).toString());
+                costo = calcular_costo(temp.get(pos-1).getDni());
+                System.out.println("Costo total de los viajes del usuario:  " + costo );
+                tipo_avion = get_mejor_avion(temp.get(pos-1).getDni());
+                if (tipo_avion == 1) {
+                    System.out.println("El mejor Avion en el que ha viajado este Usuario es:  Bronze\n");
+                } else if (tipo_avion == 2) {
+                    System.out.println("El mejor Avion en el que ha viajado este Usuario es:  Silver\n");
+                } else if (tipo_avion == 3) {
+                    System.out.println("El mejor Avion en el que ha viajado este Usuario es:  Gold\n");
+                } else {
+                    System.out.println("Este usuario no tiene vuelos cargados\n");
+                }
+            }else {
+                System.out.println("El usuario no existe\n");
+            }
+            siguiente();
+        }
+    }
+
+    public void siguiente(){
+        Scanner nextt=new Scanner(System.in);
+        String next;
+        next=nextt.nextLine();
+    }
+
+    public LinkedHashMap<Integer, Vuelo> filtrarVuelos(String dni) {
+        LinkedHashMap<Integer, Vuelo> vuelosPorUsuario = new LinkedHashMap<>();
+        for (int i=0; i<vuelos.size(); i++) {
+            if (vuelos.get(i).getDni().equals(dni)) {
+                vuelosPorUsuario.put(i, vuelos.get(i));
+            }
+        }
+        return vuelosPorUsuario;
     }
 
     public void cancelar_vuelo() {
         Scanner teclado = new Scanner(System.in);
         int seleccion=0;
         int j = 0;
+        int indice = 0;
+        Usuario usuario=usuarios.seleccionarUsuario();
+        // crea un map ordenado con los vuelos del usuario, la key es la posicion en el arreglo principal de vuelos
+        // el valor es el vuelo
+        LinkedHashMap<Integer, Vuelo> vuelosPorUsuario = filtrarVuelos(usuario.getDni());
+        // crea un array de las keys para poder listarlos con un numero que va a ingresar el usuario
+        // y relacionarlo con la key. Ej opcion 2 = key 31
+        ArrayList<Integer> claves = new ArrayList<>( vuelosPorUsuario.keySet() );
         if(vuelos.isEmpty()) {
             //Excepcion en caso de que el usuario no tenga vuelos
             System.out.println("El Usuario no cuenta con vuelos reservados\n");
         }else {
             System.out.println("Vuelos en los que el Usuario se encuentra registrado: \n");
             //Loop para printear los vuelos
-            while (j < vuelos.size())
-            {
-                System.out.println(j + ") Fecha: " + vuelos.get(j).getFechaVuelo()
-                        + ", Tipo de Avion: " + vuelos.get(j).getAvion()
-                        + ", Costo del Vuelo: " + vuelos.get(j).getCosto()
-                        + ", Recorrido: " + vuelos.get(j).getRecorrido()
-                        + ", Acompañantes: " + vuelos.get(j).getAcompanante() + "\n");
-                j++;
+            for (int i=0; i<claves.size(); i++) {
+                System.out.println((i+1) + " - " + vuelosPorUsuario.get(claves.get(i)) + "\n");
             }
-            System.out.println("Ingrese el Numero de vuelo que desea cancelar. " +
+            System.out.println("\n\nIngrese el Numero de vuelo que desea cancelar. " +
                     "Si no desea cancelar ningun vuelo, seleccione 0\n");
             do {
                 try {
                     ///Si el proximo no es un int o es menor a 0, entonces arroja un error
                     seleccion = teclado.nextInt();
+
                 } catch (InputMismatchException ime){
                     System.out.println("Solo puedes insertar números de la lista o 0");
                     teclado.next();
                 }
-            } while (!(-1 < seleccion && seleccion < j));
+            } while (seleccion < 0 || seleccion > claves.size());
             if(seleccion != 0){
+                indice = claves.get(seleccion - 1);
                 ///Si la seleccion es correcta y no es 0 en cuyo caso se sale de la funcion), remueve el vuelo y guarda los cambios
-                if (validarCancelacion(vuelos.get(seleccion).getFechaVuelo())) {
-                        vuelos.remove(seleccion);}
+                if (validarCancelacion(vuelos.get(indice).getFechaVuelo())) {
+                   // vuelos.remove(indice);
                 }
-            try{
-                //guarda en archivos
-                guardarVuelos();
-                System.out.println("Vuelo cancelado exitosamente");
-            } catch(IOException e) {
-                System.out.println("No se pudo guardar la cancelacion");
+                /*try{
+                    //guarda en archivos
+                    guardarVuelos();
+                    System.out.println("Vuelo cancelado exitosamente");
+                    siguiente();
+                } catch(IOException e) {
+                    System.out.println("No se pudo guardar la cancelacion");
+                    siguiente();
+                }*/
             }
         }
+    }
+
+
+    public void listarVuelos(){
+        int j=0;
+
+        while (j < vuelos.size()){
+            System.out.println(j+1 +" "+ vuelos.get(j).toString()+ '\n'+ '\n');
+            j++;
+        }
+        siguiente();
     }
 
     public void guardarVuelos() throws IOException {
@@ -403,6 +561,35 @@ public class AeroTaxi {
         return cadena;
     }
 
+    public void seleccionarMostrarVuelos(){
+        int opcion=0;
+        Menu.clearScreen();
+        Scanner teclado= new Scanner(System.in);
+        System.out.println("1- Listar todos los vuelos");
+        System.out.println("2- Listar vuelos por fecha");
+
+        try{
+            System.out.println("Escribe una de las opciones");
+            opcion = teclado.nextInt();
+
+            switch (opcion){
+                case 1:
+                    listarVuelos();
+                    Menu.clearScreen();
+                    break;
+                case 2:
+                    listarVuelosFecha();
+                    Menu.clearScreen();
+                    break;
+            }
+
+        } catch (InputMismatchException e) {
+
+            System.out.println("Debes insertar un número");
+            opcion = teclado.nextInt();
+        }
+
+    }
 
 
 }

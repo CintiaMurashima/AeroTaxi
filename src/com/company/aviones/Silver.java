@@ -9,4 +9,9 @@ public class Silver extends Avion{
     public Silver(){
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " , Categoria: Silver";
+    }
+
 }

@@ -57,11 +57,9 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return " Usuario " +
-                " Nombre= " + nombre  +
-                " Apellido= " + apellido  +
-                " DNI= " + dni  +
-                " Edad= " + edad
-                ;
+        return "Nombre: " + nombre  + '\n'+
+                "Apellido: " + apellido  +'\n'+
+                "DNI: " + dni  +'\n'+
+                "Edad: " + edad;
     }
 }

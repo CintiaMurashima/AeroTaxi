@@ -104,4 +104,10 @@ public class Vuelos {
         return total;
     }
 
+    @Override
+    public String toString() {
+        return "Vuelos{" +
+                "vuelos=" + vuelos +
+                '}';
+    }
 }

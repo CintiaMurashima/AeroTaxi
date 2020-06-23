@@ -11,8 +11,8 @@ public class Bronze extends Avion {
         super();
     }
 
-
-
-
-
+    @Override
+    public String toString() {
+        return super.toString() + " , Categoria: Bronze";
+    }
 }

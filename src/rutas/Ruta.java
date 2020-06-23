@@ -42,10 +42,8 @@ public class Ruta {
 
     @Override
     public String toString() {
-        return "Ruta{" +
-                "ciudad1='" + ciudad1 + '\'' +
-                ", ciudad2='" + ciudad2 + '\'' +
-                ", distancia=" + distancia +
-                '}';
+        return " origen: '" + ciudad1 + '\'' +
+                " , destino: '" + ciudad2 + '\'' +
+                " , distancia: " + distancia ;
     }
 }

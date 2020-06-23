@@ -21,5 +21,10 @@ public class Gold extends Avion {
         this.wifi = wifi;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " , Categoria: Gold";
+    }
+
 
 }

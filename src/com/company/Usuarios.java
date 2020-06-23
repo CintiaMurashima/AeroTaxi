@@ -2,11 +2,9 @@ package com.company;
 
 import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import  java.util.Calendar;
-import java.util.Scanner;
+import java.util.*;
 
 public class Usuarios {
 
@@ -62,24 +60,38 @@ public class Usuarios {
         return encontrado;
     }
 
-    public String mostrarUsuarios(Usuarios usuarios){
-        String usus=" ";
-        int i=1;
-        ArrayList<Usuario> usu=this.usuarios;
-        for (Usuario com: usu) {
-            usus += i +" "+com.toString() + '\n';
+    public void mostrarUsuarios(){
+        int j=0;
+        while (j<usuarios.size()){
+            System.out.println(j+1 + " "+usuarios.get(j).getNombre() +", "+usuarios.get(j).getApellido() );
+            j++;
         }
-       return usus;
     }
 
-    public Usuario seleccionarUsuario(Usuarios usuarios){
+    public Usuario seleccionarUsuario(){
         Usuario seleccinado=new Usuario();
-        String usus=mostrarUsuarios(usuarios);
+        int pos=0;
+        boolean validacion=false;
         Scanner teclado= new Scanner(System.in);
-        System.out.println("Ingrese un usuario: ");
-        System.out.println(usus);
-        int pos= teclado.nextInt();
-        seleccinado = traerUsuarioId(pos);
+        System.out.println("Ingrese un usuario: " + '\n');
+        do{
+            mostrarUsuarios();
+            try {
+                teclado= new Scanner(System.in);
+                pos = teclado.nextInt();
+                pos = pos - 1;
+                if (pos < usuarios.size() && pos >= 0) {
+                    seleccinado = traerUsuarioId(pos);
+                    validacion = true;
+                } else {
+                    Menu.clearScreen();
+                    System.out.println("Ingrese un usuario valido");
+                }
+            }catch(InputMismatchException e) {
+                Menu.clearScreen();
+                System.out.println("Ingresar un numero");
+            }
+        } while(!validacion);
         return seleccinado;
     }
 
