@@ -1,6 +1,5 @@
 package vuelos;
 
-import com.company.Usuario;
 import rutas.Ruta;
 
 import java.text.SimpleDateFormat;

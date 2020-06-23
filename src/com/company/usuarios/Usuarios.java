@@ -1,9 +1,7 @@
-package com.company;
+package com.company.usuarios;
 
-import javax.swing.plaf.synth.SynthTextAreaUI;
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
+import com.company.Menu;
+
 import java.util.*;
 
 public class Usuarios {
@@ -18,11 +16,11 @@ public class Usuarios {
     }
 
 
-    public ArrayList<com.company.Usuario> getUsuarios() {
+    public ArrayList<Usuario> getUsuarios() {
         return usuarios;
     }
 
-    public void setUsuarios(ArrayList<com.company.Usuario> usuarios) {
+    public void setUsuarios(ArrayList<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
 

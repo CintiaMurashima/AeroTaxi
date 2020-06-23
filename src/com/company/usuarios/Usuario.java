@@ -1,4 +1,4 @@
-package com.company;
+package com.company.usuarios;
 
 
 public class Usuario {

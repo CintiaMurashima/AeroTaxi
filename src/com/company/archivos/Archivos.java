@@ -1,7 +1,7 @@
 package com.company.archivos;
 
-import com.company.Usuario;
-import com.company.Usuarios;
+import com.company.usuarios.Usuario;
+import com.company.usuarios.Usuarios;
 import rutas.Ciudades;
 import rutas.Ruta;
 import rutas.Rutas;

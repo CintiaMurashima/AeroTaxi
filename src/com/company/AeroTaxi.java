@@ -2,6 +2,8 @@ package com.company;
 
 import com.company.archivos.Archivos;
 import com.company.aviones.*;
+import com.company.usuarios.Usuario;
+import com.company.usuarios.Usuarios;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import rutas.Ciudades;
 import rutas.Ruta;
@@ -13,7 +15,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -521,17 +522,16 @@ public class AeroTaxi {
                 indice = claves.get(seleccion - 1);
                 ///Si la seleccion es correcta y no es 0 en cuyo caso se sale de la funcion), remueve el vuelo y guarda los cambios
                 if (validarCancelacion(vuelos.get(indice).getFechaVuelo())) {
-                   // vuelos.remove(indice);
+                    vuelos.remove(indice);
+                    try{
+                        //guarda en archivos
+                        guardarVuelos();
+                        System.out.println("Vuelo cancelado exitosamente");
+                    } catch(IOException e) {
+                        System.out.println("No se pudo guardar la cancelacion");
+                    }
                 }
-                /*try{
-                    //guarda en archivos
-                    guardarVuelos();
-                    System.out.println("Vuelo cancelado exitosamente");
-                    siguiente();
-                } catch(IOException e) {
-                    System.out.println("No se pudo guardar la cancelacion");
-                    siguiente();
-                }*/
+                siguiente();
             }
         }
     }
@@ -544,7 +544,7 @@ public class AeroTaxi {
             System.out.println(j+1 +" "+ vuelos.get(j).toString()+ '\n'+ '\n');
             j++;
         }
-        siguiente();
+     ///   siguiente();
     }
 
     public void guardarVuelos() throws IOException {
@@ -574,12 +574,13 @@ public class AeroTaxi {
 
             switch (opcion){
                 case 1:
-                    listarVuelos();
                     Menu.clearScreen();
+                    listarVuelos();
+
                     break;
                 case 2:
-                    listarVuelosFecha();
                     Menu.clearScreen();
+                    listarVuelosFecha();
                     break;
             }
 
