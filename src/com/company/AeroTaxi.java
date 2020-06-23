@@ -48,17 +48,16 @@ public class AeroTaxi {
             } while (!(seleccion >=1 && seleccion <= 2));
             if(seleccion == 1){
                 try{
-                    a.guardarArchivos();// genero los com.company.archivos nuevamente
+                    a.guardarArchivos();// genero los archivos nuevamente
                     leerArchivos();
                 }catch(IOException e1){
-                    System.out.println("No se pudieron generar los com.company.archivos");
+                    System.out.println("No se pudieron generar los archivos");
                 }
             }
         }
     }
 
     public void leerArchivos() throws IOException{
-
 
         ObjectMapper mapper = new ObjectMapper();
         /// Files.readString convierte archivo en String /// Paths.get es la ruta
@@ -160,7 +159,6 @@ public class AeroTaxi {
             }
         }
 
-
         do {
             for (int i = 0; i < ciudadesFiltradas.size(); i++){
             //le sumo para mostrar a partir de 1 al usuario
@@ -171,13 +169,12 @@ public class AeroTaxi {
                 seleccion = teclado.nextInt();
 
             } catch (InputMismatchException ime){
-                System.out.println("El numero ingresado es incorrecto, vuelva a intentar");
+                System.out.println("Debe ingresar un numero correcto, vuelva a intentar");
                 teclado.next();
             }
         } while (seleccion > ciudadesFiltradas.size() || seleccion < 1);
 
             ciudad=ciudadesFiltradas.get(seleccion-1);
-
 
         return ciudad;
     }
@@ -344,7 +341,7 @@ public class AeroTaxi {
                 if(seleccion == 1){
                     try{
                         vuelos.add(vuelo);
-                        //guarda en com.company.archivos
+                        //guarda en archivos
                         guardarVuelos();
                         Menu.clearScreen();
                         System.out.println("El vuelo se guardo con exito");
@@ -446,6 +443,7 @@ public class AeroTaxi {
                 System.out.println("Solo puede ingresar numeros");
             }
             if(pos > 0 && pos<=temp.size()){
+
                 System.out.println(temp.get(pos-1).toString());
                 costo = calcular_costo(temp.get(pos-1).getDni());
                 System.out.println("Costo total de los viajes del usuario:  " + costo );
@@ -493,7 +491,7 @@ public class AeroTaxi {
         LinkedHashMap<Integer, Vuelo> vuelosPorUsuario = filtrarVuelos(usuario.getDni());
         // crea un array de las keys para poder listarlos con un numero que va a ingresar el usuario
         // y relacionarlo con la key. Ej opcion 2 = key 31
-        ArrayList<Integer> claves = new ArrayList<>( vuelosPorUsuario.keySet() );
+        ArrayList<Integer> claves = new ArrayList<>( vuelosPorUsuario.keySet() );///keySet devuelve las key del map
         if(vuelos.isEmpty()) {
             //Excepcion en caso de que el usuario no tenga vuelos
             System.out.println("El Usuario no cuenta con vuelos reservados\n");

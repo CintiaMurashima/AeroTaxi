@@ -4,11 +4,6 @@
     <list default="true" id="86116314-3ed9-4473-9c63-a2a47978addd" name="Default Changelist" comment="Merge branch 'master' of https://github.com/CintiaMurashima/AeroTaxi&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;vuelos.json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/AeroTaxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/AeroTaxi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/archivos/Archivos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/archivos/Archivos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/usuarios/Usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/usuarios/Usuarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vuelos/Vuelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vuelos/Vuelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vuelos/Vuelos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vuelos/Vuelos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vuelos.json" beforeDir="false" afterPath="$PROJECT_DIR$/vuelos.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,22 +125,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="348" y="82" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1591560431702" />
-    <state width="1281" height="291" key="GridCell.Tab.0.bottom" timestamp="1592929657888">
+    <state width="1281" height="410" key="GridCell.Tab.0.bottom" timestamp="1592941631808">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="291" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592929657888" />
-    <state width="1281" height="291" key="GridCell.Tab.0.center" timestamp="1592929657888">
+    <state width="1281" height="410" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592941631808" />
+    <state width="1281" height="410" key="GridCell.Tab.0.center" timestamp="1592941631808">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="291" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592929657888" />
-    <state width="1281" height="291" key="GridCell.Tab.0.left" timestamp="1592929657887">
+    <state width="1281" height="410" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592941631808" />
+    <state width="1281" height="410" key="GridCell.Tab.0.left" timestamp="1592941631808">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="291" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592929657887" />
-    <state width="1281" height="291" key="GridCell.Tab.0.right" timestamp="1592929657888">
+    <state width="1281" height="410" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592941631808" />
+    <state width="1281" height="410" key="GridCell.Tab.0.right" timestamp="1592941631808">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="291" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592929657888" />
+    <state width="1281" height="410" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592941631808" />
     <state width="1281" height="242" key="GridCell.Tab.1.bottom" timestamp="1592879131394">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -179,10 +174,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="376" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728/1366.0.1067.560@0.0.1366.728" timestamp="1592080628266" />
-    <state x="0" y="0" width="612" height="680" key="find.popup" timestamp="1592929977289">
+    <state x="0" y="0" width="612" height="680" key="find.popup" timestamp="1592945088815">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" width="612" height="680" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1592929977289" />
+    <state x="0" y="0" width="612" height="680" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1592945088815" />
     <state x="91" y="0" key="new project wizard" timestamp="1591554863129">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
