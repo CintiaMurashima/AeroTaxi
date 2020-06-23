@@ -3,18 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="86116314-3ed9-4473-9c63-a2a47978addd" name="Default Changelist" comment="Merge branch 'master' of https://github.com/CintiaMurashima/AeroTaxi&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;vuelos.json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/AeroTaxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/AeroTaxi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Usuarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/aviones/Avion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Avion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/aviones/Bronze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Bronze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/aviones/Gold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Gold.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/aviones/Silver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aviones/Silver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rutas/Ruta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rutas/Ruta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vuelos/Vuelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vuelos/Vuelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vuelos/Vuelos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vuelos/Vuelos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vuelos.json" beforeDir="false" afterPath="$PROJECT_DIR$/vuelos.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,22 +124,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="348" y="82" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1591560431702" />
-    <state width="1281" height="2" key="GridCell.Tab.0.bottom" timestamp="1592837469325">
+    <state width="1281" height="390" key="GridCell.Tab.0.bottom" timestamp="1592872081937">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="2" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592837469325" />
-    <state width="1281" height="2" key="GridCell.Tab.0.center" timestamp="1592837469325">
+    <state width="1281" height="390" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592872081937" />
+    <state width="1281" height="390" key="GridCell.Tab.0.center" timestamp="1592872081937">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="2" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592837469325" />
-    <state width="1281" height="2" key="GridCell.Tab.0.left" timestamp="1592837469324">
+    <state width="1281" height="390" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592872081937" />
+    <state width="1281" height="390" key="GridCell.Tab.0.left" timestamp="1592872081937">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="2" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592837469324" />
-    <state width="1281" height="2" key="GridCell.Tab.0.right" timestamp="1592837469325">
+    <state width="1281" height="390" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592872081937" />
+    <state width="1281" height="390" key="GridCell.Tab.0.right" timestamp="1592872081937">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="2" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592837469325" />
+    <state width="1281" height="390" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592872081937" />
     <state width="1281" height="242" key="GridCell.Tab.1.bottom" timestamp="1592795366427">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
