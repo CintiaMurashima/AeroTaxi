@@ -10,7 +10,6 @@ import rutas.Ruta;
 import rutas.Rutas;
 import vuelos.Vuelo;
 import vuelos.Vuelos;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -64,9 +63,7 @@ public class AeroTaxi {
         ObjectMapper mapper = new ObjectMapper();
         /// Files.readString convierte archivo en String /// Paths.get es la ruta
         String jsonRutas = Files.readString(Paths.get("rutas.json"));
-        //convierte el string json en objeto
-        Rutas listaRutas = mapper.readValue(jsonRutas, Rutas.class);
-
+        Rutas listaRutas = mapper.readValue(jsonRutas, Rutas.class);//convierte el string json en objeto
         rutas = listaRutas.getRutas();
 
         String jsonAviones = Files.readString(Paths.get("aviones.json"));
@@ -520,7 +517,7 @@ public class AeroTaxi {
             } while (seleccion < 0 || seleccion > claves.size());
             if(seleccion != 0){
                 indice = claves.get(seleccion - 1);
-                ///Si la seleccion es correcta y no es 0 en cuyo caso se sale de la funcion), remueve el vuelo y guarda los cambios
+                ///Si la seleccion es correcta y no es 0 en cuyo caso se sale de la funcion, remueve el vuelo y guarda los cambios
                 if (validarCancelacion(vuelos.get(indice).getFechaVuelo())) {
                     vuelos.remove(indice);
                     try{
@@ -531,7 +528,7 @@ public class AeroTaxi {
                         System.out.println("No se pudo guardar la cancelacion");
                     }
                 }
-                siguiente();
+               siguiente();
             }
         }
     }
@@ -544,7 +541,7 @@ public class AeroTaxi {
             System.out.println(j+1 +" "+ vuelos.get(j).toString()+ '\n'+ '\n');
             j++;
         }
-     ///   siguiente();
+        siguiente();
     }
 
     public void guardarVuelos() throws IOException {
@@ -554,12 +551,6 @@ public class AeroTaxi {
         mapper.writeValue(archivoVuelos,listaVuelos);
     }
 
-        public String mostrarUsuVuelo(Usuario usu ,Vuelos todos){
-        String cadena="";
-        cadena = usu.toString();
-        cadena += todos.mostrarLosVuelosUsu(usu.getDni());
-        return cadena;
-    }
 
     public void seleccionarMostrarVuelos(){
         int opcion=0;

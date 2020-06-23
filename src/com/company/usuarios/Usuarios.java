@@ -24,29 +24,6 @@ public class Usuarios {
         this.usuarios = usuarios;
     }
 
-    public boolean usuarioCreado(String dni) {
-        boolean creado = false;
-        ArrayList<Usuario> usu=this.usuarios;
-        for (Usuario com: usu) {
-            creado = com.getDni().equals(dni);
-        }
-        return creado;
-    }
-
-    public Usuario traerUsuarioDNI(String dni) {
-        Usuario encontrado=new Usuario();
-        boolean creado=usuarioCreado(dni);
-        if(creado){
-            for (Usuario com: usuarios)
-                if (com.getDni().equals(dni)) {
-                    encontrado = com;
-                }
-        }else{
-            System.out.println("Ingrese un D.N.I. valido");
-        }
-        return encontrado;
-    }
-
     public Usuario traerUsuarioId(int pos) {
         Usuario encontrado=new Usuario();
         ArrayList<Usuario> usu=this.usuarios;

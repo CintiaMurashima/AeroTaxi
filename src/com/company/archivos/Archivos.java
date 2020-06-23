@@ -1,5 +1,4 @@
 package com.company.archivos;
-
 import com.company.usuarios.Usuario;
 import com.company.usuarios.Usuarios;
 import rutas.Ciudades;
@@ -9,7 +8,6 @@ import com.company.aviones.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import vuelos.Vuelo;
 import vuelos.Vuelos;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -109,6 +107,7 @@ public class Archivos {
         usuarios.add(usuario6);
         Usuarios usu= new Usuarios(usuarios);
         mapper.writeValue(archivoUsuarios,usu);
+
 
 
         Vuelos vu= new Vuelos(vuelos);

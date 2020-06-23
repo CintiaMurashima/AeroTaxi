@@ -76,13 +76,6 @@ public class Vuelo {
         this.dni = dni;
     }
 
-    String mostrarFecha(){
-        SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd");//dd/MM/yyyy
-        Date now = new Date();
-        String strDate = sdfDate.format(now);
-        return strDate;
-    }
-
     public double calcularPrecio(){
         double precioVuelo=0;
         precioVuelo=( avion.getCostoXkm() * recorrido.getDistancia())+ ((acompanante + 1 )* 3500) + avion.getTarifaDelTipo();
@@ -92,8 +85,7 @@ public class Vuelo {
     @Override
     public String toString() {
         SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd");
-
-        String fechaFormateada = formatter.format(getFechaVuelo());
+        String fechaFormateada = formatter.format(getFechaVuelo()); // fecha formato lindo
         return "Vuelo: " + '\n' +
                 "Fecha: " + fechaFormateada +  '\n' +
                 "Recorrido: " + recorrido  +'\n' +
